@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   FcShop,
@@ -11,6 +12,8 @@ import {
 
 export default function FooterNav() {
   const [isVisible, setIsVisible] = useState<boolean>(true);
+
+  const router = useRouter();
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -48,7 +51,11 @@ export default function FooterNav() {
             <FcBarChart />
             <span>사업 투자</span>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              router.push("/");
+            }}
+          >
             <FcHome />
             <span>홈</span>
           </li>
@@ -57,7 +64,11 @@ export default function FooterNav() {
             <FcComments />
             <span>커뮤니티</span>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              router.push("/mypage");
+            }}
+          >
             <FcAbout />
             <span>마이페이지</span>
           </li>

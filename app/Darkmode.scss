@@ -1,0 +1,85 @@
+// Mode
+$font: "Noto Sans KR", sans-serif;
+$colorPuple: #6741d9;
+$colorBlue: #3b5bdb;
+
+body.dark-mode {
+  transition: 0.5s;
+  background-color: #222;
+  a,
+  h1,
+  h3,
+  span,
+  p {
+    color: white;
+  }
+  .m-nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #222;
+  }
+  .footer-nav {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #222;
+    .footer-nav-inner {
+      ul {
+        li {
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .home-transaction-link {
+    border: 1px solid rgb(255 255 255 / 85%);
+    background-color: rgb(255 255 255 / 85%);
+    .transaction-title {
+      span {
+        color: #222;
+      }
+    }
+  }
+  .home-community {
+    h3 {
+      span {
+        color: white;
+      }
+    }
+    ul {
+      li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .home-community-info {
+          .home-community-info-category {
+            color: $colorBlue;
+          }
+          .home-community-info-nickname {
+            color: white;
+          }
+          .home-community-info-count {
+            color: white;
+          }
+        }
+      }
+    }
+    .home-community-more-btn {
+      background-color: rgba(255, 255, 255, 0.85);
+      span {
+        color: #222;
+      }
+    }
+  }
+  .footer {
+    background-color: rgba(255, 255, 255, 0.85);
+    p {
+      color: black;
+    }
+    span {
+      color: black;
+    }
+    .footer-copyright {
+      span {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}

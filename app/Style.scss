@@ -404,3 +404,75 @@ body.dark-mode {
     }
   }
 }
+
+// Footer
+.footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 50px 0 0;
+  .footer-inner {
+    width: 90%;
+    margin: 0 auto;
+    .footer-info {
+      width: 100%;
+      p {
+        font-size: 15px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 3px;
+        pointer-events: none;
+      }
+      span {
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 400;
+        pointer-events: none;
+      }
+    }
+    .footer-info-list {
+      width: 100%;
+      margin-top: 20px;
+      ul {
+        width: 100%;
+        @include flexCenter();
+        gap: 20px;
+        li {
+          background-color: white;
+          border-radius: 5px;
+          padding: 7px 20px;
+          @include flexCenter();
+          cursor: pointer;
+          span {
+            font-size: 12px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    .footer-terms {
+      width: 100%;
+      margin-top: 20px;
+      @include flexCenter();
+      gap: 20px;
+      span {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+    }
+  }
+  .footer-copyright {
+    width: 100%;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.15);
+    @include flexCenter();
+    padding: 10px 0;
+    span {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.3);
+    }
+  }
+}

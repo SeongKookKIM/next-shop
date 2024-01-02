@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import "./Style.scss";
 import FooterNav from "./FooterNav";
+import Footer from "./components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         {children}
         <FooterNav />
+        <Footer />
       </body>
     </html>
   );

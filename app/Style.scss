@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700&display=swap");
 
 $font: "Noto Sans KR", sans-serif;
+$colorPuple: #6741d9;
+$colorBlue: #3b5bdb;
 
 :root {
   --vh: 100%;
@@ -35,4 +37,370 @@ li {
   padding: 0;
   box-sizing: border-box;
   font-family: $font;
+  color: black;
+}
+
+// Mode
+body.dark-mode {
+  transition: 0.5s;
+  background-color: #222;
+  a,
+  h1,
+  h3,
+  span,
+  p {
+    color: white;
+  }
+  .m-nav {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #222;
+  }
+  .footer-nav {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #222;
+    .footer-nav-inner {
+      ul {
+        li {
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .home-transaction-link {
+    border: 1px solid rgb(255 255 255 / 85%);
+    background-color: rgb(255 255 255 / 85%);
+    .transaction-title {
+      span {
+        color: #222;
+      }
+    }
+  }
+  .home-community {
+    h3 {
+      span {
+        color: white;
+      }
+    }
+    ul {
+      li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        .home-community-info {
+          .home-community-info-category {
+            color: $colorBlue;
+          }
+          .home-community-info-nickname {
+            color: white;
+          }
+          .home-community-info-count {
+            color: white;
+          }
+        }
+      }
+    }
+    .home-community-more-btn {
+      background-color: rgba(255, 255, 255, 0.85);
+      span {
+        color: #222;
+      }
+    }
+  }
+}
+
+// Footer-Nav
+.footer-nav.hide {
+  bottom: -60px;
+  transition: 0.5s;
+}
+.footer-nav {
+  width: 100%;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: 0.5s;
+  .footer-nav-inner {
+    width: 90%;
+    margin: 0 auto;
+    ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      li {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        cursor: pointer;
+        svg {
+          display: block;
+          width: 20px;
+          height: 20px;
+        }
+        span {
+          font-size: 10px;
+          font-weight: 600;
+          color: rgba(0, 0, 0, 0.8);
+          letter-spacing: -1px;
+        }
+      }
+    }
+  }
+}
+
+// Home{
+.home {
+  width: 100%;
+  padding-top: 55px;
+  transition: 0.5s;
+  .m-nav.hide {
+    top: -56px;
+    transition: 0.5s;
+    border: none;
+  }
+  .m-nav {
+    width: 100%;
+    height: 56px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.01);
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: 0.5s;
+    .m-nav-inner {
+      width: 90%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .m-logo {
+        h1 {
+          font-size: 24px;
+          font-weight: 600;
+          cursor: pointer;
+          letter-spacing: -2px;
+        }
+      }
+      .mode {
+        span {
+          font-size: 18px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .home-inner {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+    .home-title {
+      width: 100%;
+      p {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        line-height: 26px;
+        display: flex;
+        gap: 5px;
+        &:nth-child(1) {
+          font-weight: 400;
+        }
+      }
+    }
+    .home-biz-wrapper {
+      width: 100%;
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .biz {
+        width: 47%;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        p {
+          font-size: 15px;
+          color: white;
+          font-weight: 600;
+          letter-spacing: -1px;
+          margin-bottom: 5px;
+          text-align: center;
+        }
+        span {
+          display: block;
+          font-size: 11px;
+          color: white;
+          font-weight: 300;
+          text-align: center;
+          letter-spacing: -1px;
+          margin-bottom: 4px;
+        }
+        .biz-image {
+          margin-top: 20px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          svg {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+      .biz-transaction {
+        background-color: $colorBlue;
+        background-image: -webkit-linear-gradient(
+          -45deg,
+          #748ffc 0%,
+          #3b5bdb 80%
+        );
+        box-shadow: 0 4px 10px 0 rgb(59 91 219 / 40%),
+          inset 0px 2px 3px rgb(255 255 255 / 10%),
+          inset 0px 1px 1px rgb(255 255 255 / 20%),
+          inset 0px -2px 3px rgb(0 0 0 / 12%),
+          inset 0px -1px 2px rgb(0 0 0 / 25%);
+      }
+      .biz-invest {
+        background-color: $colorPuple;
+        background-image: -webkit-linear-gradient(
+          -45deg,
+          #9775fa 0%,
+          #6741d9 80%
+        );
+        box-shadow: 0 4px 10px 0 rgb(103 65 217 / 40%),
+          inset 0px 2px 3px rgb(255 255 255 / 10%),
+          inset 0px 1px 1px rgb(255 255 255 / 20%),
+          inset 0px -2px 3px rgb(0 0 0 / 12%),
+          inset 0px -1px 2px rgb(0 0 0 / 25%);
+      }
+    }
+  }
+  .home-transaction-link {
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid rgb(0 0 0 / 5%);
+    background-color: rgb(0 0 0 / 5%);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    .transaction-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      span {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        &:nth-child(2) {
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: -1px;
+        }
+      }
+    }
+    .transaction-btn {
+      border: 1px solid #333;
+      padding: 6px 10px;
+      border-radius: 5px;
+      background-color: #333;
+      p {
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .home-community {
+    width: 100%;
+    margin-top: 30px;
+    padding-bottom: 1000px;
+    h3 {
+      width: 100%;
+      font-size: 19px;
+      font-weight: 600;
+      position: relative;
+      padding: 20px 0;
+      span {
+        position: absolute;
+        right: 0;
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+      }
+    }
+    ul {
+      width: 100%;
+      li {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid rgb(0 0 0 / 5%);
+        &:last-child {
+          border-bottom: none;
+        }
+        p {
+          width: 100%;
+          font-size: 13px;
+          font-weight: 600;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          margin-bottom: 5px;
+        }
+        .home-community-info {
+          width: 100%;
+          display: flex;
+          gap: 2px;
+          align-items: center;
+          span {
+            font-size: 12px;
+            font-weight: 500;
+          }
+          .home-community-info-category {
+            color: $colorPuple;
+          }
+          .home-community-info-nickname {
+            color: rgba(0, 0, 0, 0.8);
+          }
+          .home-community-info-count {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            svg {
+              display: block;
+              width: 15px;
+              height: 15px;
+            }
+            color: rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+    }
+    .home-community-more-btn {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 7px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      span {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
 }

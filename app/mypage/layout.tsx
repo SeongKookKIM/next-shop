@@ -8,11 +8,14 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   let session = await getServerSession(authOptions);
-  console.log(session);
+  if (session && session.user) {
+    console.log(session.user.name);
+    console.log(session.user.nickName);
+  }
 
   return (
     <div className="myapge-page">
-      <SubNav title="마이페이지" />
+      <SubNav title={"마이페이지"} />
       {children}
     </div>
   );

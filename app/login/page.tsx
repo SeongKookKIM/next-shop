@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { GrGithub } from "react-icons/gr";
 
+import { signIn } from "next-auth/react";
+
 function page() {
   const router = useRouter();
 
@@ -17,7 +19,13 @@ function page() {
 
   const testForm = async (data: any) => {
     await new Promise((r) => setTimeout(r, 1000));
-    console.log(data);
+
+    const res = await signIn("credentials", {
+      id: data.id,
+      password: data.password,
+      redirect: true,
+      callbackUrl: "/",
+    });
   };
 
   return (

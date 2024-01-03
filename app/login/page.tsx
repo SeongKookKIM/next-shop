@@ -57,7 +57,7 @@ function page() {
           </button>
         </form>
         <div className="login-signin">
-          <span>회원가입</span>
+          <span onClick={() => router.push("/join")}>회원가입</span>
         </div>
 
         <div className="oauth-login-wrapper">

@@ -2,8 +2,8 @@ import SubNav from "../components/SubNav";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="login-page">
-      <SubNav title="로그인" />
+    <div className="join-page">
+      <SubNav title="회원가입" />
       {children}
     </div>
   );

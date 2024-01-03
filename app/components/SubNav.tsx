@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LuArrowLeft } from "react-icons/lu";
 
-function SubNav() {
+interface PropsType {
+  title: string;
+}
+
+function SubNav({ title }: PropsType) {
   const [scrollPos, setScrollPos] = useState<number>(0);
   const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
 
@@ -33,7 +37,7 @@ function SubNav() {
       <div className="m-sub-nav-inner">
         <div className="back title">
           <LuArrowLeft onClick={() => router.push("/")} />
-          <span>로그인</span>
+          <span>{title}</span>
         </div>
         <DarkMode />
       </div>

@@ -28,6 +28,13 @@ function page() {
     });
   };
 
+  const handlerGoogle = async () => {
+    await signIn("google", { redirect: true, callbackUrl: "/" });
+  };
+  const handlerGit = async () => {
+    await signIn("github", { redirect: true, callbackUrl: "/" });
+  };
+
   return (
     <div className="login">
       <div className="login-inner">
@@ -70,10 +77,10 @@ function page() {
 
         <div className="oauth-login-wrapper">
           <ul>
-            <li>
+            <li onClick={() => handlerGoogle()}>
               <FcGoogle /> <span>구글 로그인</span>
             </li>
-            <li>
+            <li onClick={() => handlerGit()}>
               <GrGithub />
               <span> Github 로그인</span>
             </li>

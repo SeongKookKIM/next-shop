@@ -66,7 +66,7 @@ export default function FooterNav() {
           </li>
           <li
             onClick={() => {
-              router.push("/login");
+              router.push("/mypage");
             }}
           >
             <FcAbout />

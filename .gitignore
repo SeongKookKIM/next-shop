@@ -8,6 +8,7 @@
 
 /public
 .env
+.env.local
 
 # testing
 /coverage

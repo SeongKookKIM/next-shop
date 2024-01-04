@@ -84,7 +84,8 @@ body.dark-mode {
   }
   .login-page,
   .join-page,
-  .mypage-page {
+  .mypage-page,
+  .profile-page {
     .m-sub-nav {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background-color: #222;
@@ -150,6 +151,34 @@ body.dark-mode {
         span {
           color: #222;
           font-weight: 500;
+        }
+      }
+    }
+  }
+  .profile-page {
+    .profile-inner {
+      .profile-login-info,
+      .profile-user-info {
+        strong {
+          color: white;
+        }
+        ul {
+          li {
+            p {
+              font-weight: 300;
+              color: white;
+            }
+            span {
+              svg {
+                fill: white;
+              }
+            }
+          }
+        }
+      }
+      .profile-secession {
+        span {
+          color: white;
         }
       }
     }

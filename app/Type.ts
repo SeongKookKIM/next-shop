@@ -6,4 +6,7 @@ export type UserType = {
   nickName?: string;
   phone?: string;
   name?: string;
+  emailVerified?: any;
+  _id?: string;
+  image?: string;
 };

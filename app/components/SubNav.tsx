@@ -32,11 +32,28 @@ function SubNav({ title }: PropsType) {
     };
   }, [scrollPos]);
 
+  const handlerRouter = () => {
+    switch (title) {
+      case "마이페이지":
+        router.push("/");
+        break;
+      case "로그인":
+        router.push("/");
+        break;
+      case "회원가입":
+        router.push("/login");
+        break;
+      case "회원정보":
+        router.push("/mypage");
+        break;
+    }
+  };
+
   return (
     <div className={isNavVisible ? "m-sub-nav" : "m-sub-nav hide"}>
       <div className="m-sub-nav-inner">
         <div className="back title">
-          <LuArrowLeft onClick={() => router.push("/")} />
+          <LuArrowLeft onClick={handlerRouter} />
           <span>{title}</span>
         </div>
         <DarkMode />

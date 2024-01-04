@@ -741,3 +741,80 @@ li {
     }
   }
 }
+
+// Profile
+.profile-page {
+  width: 100%;
+  padding-top: 55px;
+  @include suvNavStyle();
+  .profile-inner {
+    width: 100%;
+    margin: 20px auto 50px;
+    .profile-login-info,
+    .profile-user-info {
+      width: 90%;
+      margin: 0 auto;
+      strong {
+        display: block;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+      }
+      ul {
+        width: 100%;
+
+        li {
+          padding: 10px 0;
+          border-bottom: 1px solid #f1f3f5;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 8px;
+          p {
+            font-size: 12px;
+            color: #868e96;
+          }
+          span {
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            gap: 5px;
+            svg {
+              width: 7px;
+              height: 18px;
+              fill: black;
+            }
+          }
+          button {
+            position: absolute;
+            right: 0;
+            color: #212529;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            background-color: #fff;
+            outline: none;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 7px;
+            @include flexCenter();
+          }
+        }
+      }
+    }
+
+    .profile-user-info {
+      margin-top: 20px;
+    }
+    .profile-secession {
+      width: 90%;
+      margin: 20px auto 0;
+      span {
+        font-size: 12px;
+        color: #868e96;
+        cursor: pointer;
+      }
+    }
+  }
+}

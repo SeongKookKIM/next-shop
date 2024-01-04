@@ -2,6 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import { LuUser, LuChevronRight } from "react-icons/lu";
 import LogoutBtn from "./LogoutBtn";
+import ProfileInfo from "../components/mypage/ProfileInfo";
 
 async function page() {
   let session = await getServerSession(authOptions);
@@ -16,15 +17,7 @@ async function page() {
             <LuUser />
           )}
         </div>
-        <div className="profile-info">
-          <p>
-            {session?.user?.name
-              ? session?.user?.name
-              : session?.user?.nickName}
-          </p>
-          <span>{session?.user?.email}</span>
-          <LuChevronRight className="profile-click" />
-        </div>
+        <ProfileInfo session={session} />
       </div>
       <div className="business-box">
         <ul>

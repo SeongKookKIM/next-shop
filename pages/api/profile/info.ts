@@ -21,7 +21,7 @@ export default async function handler(
     if (findOatuhName) {
       return res.status(200).json(findOatuhName);
     } else {
-      return res.status(403).send("에러");
+      return res.status(403).send("해당 유저를 찾을 수 없습니다.");
     }
   }
 }

@@ -89,6 +89,12 @@ li {
   color: black;
 }
 
+// Body
+body.active {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
 // Footer-Nav
 .footer-nav.hide {
   bottom: -60px;
@@ -814,6 +820,102 @@ li {
         font-size: 12px;
         color: #868e96;
         cursor: pointer;
+      }
+    }
+    .profile-bg {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      opacity: 0;
+      transition: 0.5s;
+    }
+    .profile-bg.show {
+      opacity: 1;
+      transition: 0.3s;
+    }
+    .edit-id.show {
+      transform: translateY(0%);
+      transition: 0.5s;
+    }
+    .edit-id {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      z-index: 110;
+      background-color: white;
+      padding: 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transform: translateY(100%);
+      transition: 0.5s;
+      .edit-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        strong {
+          font-size: 16px;
+        }
+        svg {
+          width: 25px;
+          height: 25px;
+          stroke-width: 1.5px;
+          cursor: pointer;
+          stroke: #868e96;
+        }
+      }
+      .edit-body {
+        width: 100%;
+        margin-top: 10px;
+        form {
+          width: 100%;
+          input {
+            width: 100%;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #f1f3f5;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 0;
+          }
+          .alert {
+            margin-top: 4px;
+            font-size: 11px;
+            color: red;
+            font-weight: 500;
+          }
+        }
+      }
+      .edit-guide {
+        margin-top: 20px;
+        ul {
+          width: 100%;
+          li {
+            span {
+              font-size: 11px;
+              font-weight: 500;
+              color: #868e96;
+            }
+          }
+        }
+      }
+      button {
+        width: 100%;
+        font-size: 14px;
+        font-family: $font;
+        font-weight: 500;
+        color: white;
+        background-color: #212529;
+        border: none;
+        outline: none;
+        padding: 14px 0;
+        margin-top: 20px;
+        border-radius: 10px;
       }
     }
   }

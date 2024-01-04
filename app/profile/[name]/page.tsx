@@ -6,12 +6,17 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { LuCircle } from "react-icons/lu";
+import Bg from "./Bg";
+import IdEdit from "./IdEdit";
 
 function page() {
   const params = useSearchParams();
 
   const [userName, setUserName] = useState<string | undefined | null>("");
   const [userInfo, setUserInfo] = useState<UserType>();
+
+  const [editBtn, setEditBtn] = useState<boolean>(false);
+  const [editIdBtn, setEditIdBtn] = useState<boolean>(false);
 
   useEffect(() => {
     const userQuery: string | undefined | null = params?.get("name");
@@ -27,6 +32,23 @@ function page() {
       .catch((err) => console.log(err));
   }, [userName]);
 
+  const handlerEdit = (status: string) => {
+    document.querySelector("body")?.classList.add("active");
+    setEditBtn(true);
+
+    switch (status) {
+      case "아이디":
+        setEditIdBtn(true);
+        break;
+      case "로그인":
+        break;
+      case "회원가입":
+        break;
+      case "회원정보":
+        break;
+    }
+  };
+
   return (
     <div className="profile-inner">
       <div className="profile-login-info">
@@ -35,7 +57,16 @@ function page() {
           <li>
             <p>아이디</p>
             <span>{userInfo?.id || ""}</span>
-            {userInfo?.nickName && <button type="button">변경</button>}
+            {userInfo?.nickName && (
+              <button
+                type="button"
+                onClick={() => {
+                  handlerEdit("아이디");
+                }}
+              >
+                변경
+              </button>
+            )}
           </li>
           <li>
             <p>이메일</p>
@@ -75,6 +106,15 @@ function page() {
       <div className="profile-secession">
         <span>회원탈퇴하기</span>
       </div>
+
+      {editBtn && <Bg setEditBtn={setEditBtn} setEditIdBtn={setEditIdBtn} />}
+      {editIdBtn && (
+        <IdEdit
+          setEditBtn={setEditBtn}
+          setEditIdBtn={setEditIdBtn}
+          userId={userInfo?.id}
+        />
+      )}
     </div>
   );
 }

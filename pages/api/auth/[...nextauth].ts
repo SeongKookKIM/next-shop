@@ -58,6 +58,7 @@ export const authOptions: NextAuthOptions = {
           nickName: user.nickName,
           phone: user.phone,
           name: user.name,
+          image: user.image,
         };
       }
       return token;

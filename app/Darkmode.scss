@@ -83,7 +83,8 @@ body.dark-mode {
     }
   }
   .login-page,
-  .join-page {
+  .join-page,
+  .mypage-page {
     .m-sub-nav {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background-color: #222;
@@ -113,6 +114,42 @@ body.dark-mode {
           span {
             color: #222;
           }
+        }
+      }
+    }
+    label {
+      color: white;
+    }
+    form {
+      button {
+        background-color: rgb(255 255 255 / 85%);
+        color: #222;
+      }
+    }
+  }
+  .mypage-page {
+    .mypage-inner {
+      .profile {
+        .profile-image {
+          background-color: rgb(255 255 255 / 85%);
+
+          box-shadow: 0 3px 10px 0 rgb(255 255 255 / 10%);
+
+          svg {
+            stroke: #868e96;
+          }
+        }
+      }
+      .business-box,
+      .profile-box {
+        box-shadow: 0 3px 10px 0 rgb(255 255 255 / 10%);
+        background-color: rgb(255 255 255 / 85%);
+      }
+      .logout {
+        background-color: rgb(255 255 255 / 85%);
+        span {
+          color: #222;
+          font-weight: 500;
         }
       }
     }

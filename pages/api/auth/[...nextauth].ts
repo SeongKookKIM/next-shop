@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
   },
 
   callbacks: {
-    jwt: async ({ token, user }) => {
+    jwt: async ({ token, user, trigger, session }: any) => {
       if (user) {
         token.user = {
           id: user.id,
@@ -60,6 +60,14 @@ export const authOptions: NextAuthOptions = {
           name: user.name,
           image: user.image,
         };
+      }
+      if (trigger === "update" && session) {
+        // 업데이트할 속성을 동적으로 처리
+        Object.keys(session).forEach((key) => {
+          if (key !== "user" && token.user.hasOwnProperty(key)) {
+            token.user[key] = session[key];
+          }
+        });
       }
       return token;
     },

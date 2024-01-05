@@ -837,11 +837,19 @@ body.active {
       opacity: 1;
       transition: 0.3s;
     }
-    .edit-id.show {
+    .edit-id.show,
+    .edit-email.show,
+    .edit-password.show,
+    .edit-name.show,
+    .edit-phone.show {
       transform: translateY(0%);
       transition: 0.5s;
     }
-    .edit-id {
+    .edit-id,
+    .edit-email,
+    .edit-password,
+    .edit-name,
+    .edit-phone {
       width: 100%;
       position: fixed;
       bottom: 0;
@@ -888,6 +896,33 @@ body.active {
             font-size: 11px;
             color: red;
             font-weight: 500;
+          }
+          // Password
+          .password-wrapper,
+          .confirm-password-wrapper {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            svg {
+              position: absolute;
+              right: 16px;
+              z-index: 5;
+              width: 20px;
+              height: 20px;
+              stroke-width: 2px;
+              cursor: pointer;
+              stroke: rgba(0, 0, 0, 0.3);
+            }
+          }
+        }
+        .password-change {
+          input {
+            &::placeholder {
+              font-family: $font;
+              font-size: 12px;
+              font-weight: 500;
+            }
           }
         }
       }

@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { LuXCircle } from "react-icons/lu";
@@ -14,6 +15,8 @@ interface editBtnType {
 function IdEdit({ setEditBtn, setEditIdBtn, userId }: editBtnType) {
   const [show, setShow] = useState<string>("");
   const [userEditId, setUserEditId] = useState<string | undefined>("");
+
+  let session = useSession();
 
   const {
     register,
@@ -46,8 +49,11 @@ function IdEdit({ setEditBtn, setEditIdBtn, userId }: editBtnType) {
       axios
         .post("/api/profile/edit/editId", bodyData)
         .then((res) => {
-          alert(res.data);
-          window.location.reload();
+          if (session.status === "authenticated") {
+            session.update({ id: data.id });
+            alert(res.data);
+            window.location.reload();
+          }
         })
         .catch((err) => console.log(err));
     } else {
@@ -89,7 +95,7 @@ function IdEdit({ setEditBtn, setEditIdBtn, userId }: editBtnType) {
           <div className="edit-guide">
             <ul>
               <li>
-                <span>· 중복 닉네임은 불가합니다.</span>
+                <span>· 중복 아이디는 불가합니다.</span>
               </li>
               <li>
                 <span>· 영어와 숫자를 포함하여주세요.</span>

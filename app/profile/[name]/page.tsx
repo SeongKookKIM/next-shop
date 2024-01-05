@@ -12,7 +12,6 @@ import IdEdit from "./IdEdit";
 function page() {
   const params = useSearchParams();
 
-  const [userName, setUserName] = useState<string | undefined | null>("");
   const [userInfo, setUserInfo] = useState<UserType>();
 
   const [editBtn, setEditBtn] = useState<boolean>(false);
@@ -20,17 +19,17 @@ function page() {
 
   useEffect(() => {
     const userQuery: string | undefined | null = params?.get("name");
-    setUserName(userQuery);
-  }, [params]);
+    // setUserName(userQuery);
 
-  useEffect(() => {
-    axios
-      .post("/api/profile/info", { user: userName })
-      .then((res) => {
-        setUserInfo(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, [userName]);
+    if (userQuery) {
+      axios
+        .post("/api/profile/info", { user: userQuery })
+        .then((res) => {
+          setUserInfo(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [params]);
 
   const handlerEdit = (status: string) => {
     document.querySelector("body")?.classList.add("active");

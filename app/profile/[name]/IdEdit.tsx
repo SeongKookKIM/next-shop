@@ -41,12 +41,18 @@ function IdEdit({ setEditBtn, setEditIdBtn, userId }: editBtnType) {
       findId: userId,
       changeId: data.id,
     };
-    axios
-      .post("/api/profile/edit/editId", bodyData)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
+
+    if (window.confirm("아이디를 저장하시겠습니까?")) {
+      axios
+        .post("/api/profile/edit/editId", bodyData)
+        .then((res) => {
+          alert(res.data);
+          window.location.reload();
+        })
+        .catch((err) => console.log(err));
+    } else {
+      return;
+    }
   };
 
   return (

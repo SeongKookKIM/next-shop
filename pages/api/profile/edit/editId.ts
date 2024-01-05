@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   let db = (await connectDB).db("next-shop");
-  let findId = await db.collection("user").findOne({ id: req.body.id });
+  let findId = await db.collection("user").findOne({ id: req.body.findId });
 
   if (findId) {
     let edit = await db

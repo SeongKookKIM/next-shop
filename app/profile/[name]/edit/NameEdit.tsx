@@ -49,12 +49,12 @@ function NameEdit({ setEditBtn, setEditNameBtn, userName }: editBtnType) {
         .post("/api/profile/edit/editName", bodyData)
         .then((res) => {
           if (session.status === "authenticated") {
-            if (session.status === "authenticated") {
-              session.update({ nickName: data.name });
-              alert(res.data);
+            session.update({ nickName: data.name });
+            alert(res.data);
+            router.push("/mypage");
+            setTimeout(() => {
               router.refresh();
-              router.push("/mypage");
-            }
+            }, 100);
           }
         })
         .catch((err) => console.log(err));

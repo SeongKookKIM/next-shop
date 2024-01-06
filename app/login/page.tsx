@@ -34,6 +34,12 @@ function page() {
   const handlerGit = async () => {
     await signIn("github", { redirect: true, callbackUrl: "/" });
   };
+  const handlerNaver = async () => {
+    await signIn("naver", { redirect: true, callbackUrl: "/" });
+  };
+  const handlerKakao = async () => {
+    await signIn("kakao", { redirect: true, callbackUrl: "/" });
+  };
 
   return (
     <div className="login">
@@ -83,6 +89,14 @@ function page() {
             <li onClick={() => handlerGit()}>
               <GrGithub />
               <span> Github 로그인</span>
+            </li>
+            <li onClick={() => handlerNaver()}>
+              {/* <GrGithub /> */}
+              <span> 네이버 로그인</span>
+            </li>
+            <li onClick={() => handlerKakao()}>
+              {/* <GrGithub /> */}
+              <span> 카카오 로그인</span>
             </li>
           </ul>
         </div>

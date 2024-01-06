@@ -6,6 +6,8 @@ import bcrypt from "bcrypt";
 
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import NaverProvider from "next-auth/providers/naver";
+import KakaoProvider from "next-auth/providers/kakao";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -39,8 +41,16 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET as string,
     }),
     GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_ID as string,
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_SECRET as string,
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
+    NaverProvider({
+      clientId: process.env.NAVER_CLIENT_ID as string,
+      clientSecret: process.env.NAVER_CLIENT_SECRET as string,
+    }),
+    KakaoProvider({
+      clientId: process.env.KAKAO_CLIENT_ID as string,
+      clientSecret: process.env.KAKAO_CLIENT_SECRET as string,
     }),
   ],
 

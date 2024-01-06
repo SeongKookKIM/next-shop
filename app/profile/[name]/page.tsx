@@ -2,7 +2,7 @@
 
 import { UserType } from "@/app/Type";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { LuCircle } from "react-icons/lu";
@@ -11,7 +11,7 @@ import IdEdit from "./edit/IdEdit";
 import EmailEdit from "./edit/EmailEdit";
 import PasswordEdit from "./edit/PasswordEdit";
 import NameEdit from "./edit/NameEdit";
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, signOut } from "next-auth/react";
 import PhoneEdit from "./edit/PhoneEdit";
 
 function page() {
@@ -26,9 +26,10 @@ function page() {
   const [editNameBtn, setEditNameBtn] = useState<boolean>(false);
   const [editPhoneBtn, setEditPhoneBtn] = useState<boolean>(false);
 
+  let router = useRouter();
+
   useEffect(() => {
     const userQuery: string | undefined | null = params?.get("name");
-    // setUserName(userQuery);
 
     if (userQuery) {
       axios
@@ -60,6 +61,20 @@ function page() {
       case "핸드폰":
         setEditPhoneBtn(true);
         break;
+    }
+  };
+
+  const handlerSecession = () => {
+    if (window.confirm("회원을 탈퇴하시겠습니까?")) {
+      axios
+        .post("/api/profile/secession")
+        .then(async (res) => {
+          alert(res.data);
+          await signOut({ redirect: true, callbackUrl: "/" });
+        })
+        .catch((err) => console.log(err));
+    } else {
+      return;
     }
   };
 
@@ -153,9 +168,11 @@ function page() {
           </li>
         </ul>
       </div>
-      <div className="profile-secession">
-        <span>회원탈퇴하기</span>
-      </div>
+      {userInfo?.nickName && (
+        <div className="profile-secession">
+          <span onClick={handlerSecession}>회원탈퇴하기</span>
+        </div>
+      )}
 
       <SessionProvider>
         {editBtn && (

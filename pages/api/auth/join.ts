@@ -37,6 +37,6 @@ export default async function handler(
     };
     await db.collection("user").insertOne(userInfo);
 
-    return res.status(200).send("가입해주셔서 갑사합니다.");
+    return res.status(200).send("가입해주셔서 감사합니다.");
   }
 }

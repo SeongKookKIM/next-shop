@@ -7,7 +7,6 @@ import ProfileInfo from "../components/mypage/ProfileInfo";
 async function page() {
   let session = await getServerSession(authOptions);
 
-  console.log(session?.user);
   return (
     <div className="mypage-inner">
       <div className="profile">

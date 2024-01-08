@@ -1103,3 +1103,131 @@ body.active {
     }
   }
 }
+
+// notice
+.notice-page {
+  width: 100%;
+  @include suvNavStyle();
+  padding-top: 55px;
+  .notice-inner {
+    width: 90%;
+    margin: 20px auto 50px;
+    min-height: 60vh;
+    ul {
+      width: 100%;
+      li {
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 2px solid #f1f3f5;
+        position: relative;
+        cursor: pointer;
+        &:last-child {
+          border: none;
+        }
+        p {
+          font-size: 15px;
+          font-weight: 600;
+          margin-bottom: 4px;
+        }
+        span {
+          display: block;
+          font-size: 14px;
+          font-size: 600;
+          color: #868e96;
+        }
+        svg {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          stroke-width: 1px;
+          stroke: #868e96;
+        }
+      }
+      .notice-error {
+        width: 100%;
+        height: 100%;
+        @include flexCenter();
+        span {
+          font-size: 15px;
+          font-weight: 600;
+          color: black;
+        }
+      }
+      .notice-bg {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      .notice-bg.show {
+        opacity: 1;
+        transition: 0.3s;
+      }
+      .notice-detail.show {
+        transform: translateY(0%);
+        transition: 0.5s;
+      }
+
+      .notice-detail {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 110;
+        background-color: white;
+        padding: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        transform: translateY(100%);
+        transition: 0.5s;
+        .notice-header {
+          width: 100%;
+          border-bottom: 1px solid #f1f3f5;
+          padding: 10px 0 15px;
+          .notice-header-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            strong {
+              font-size: 18px;
+            }
+            svg {
+              width: 25px;
+              height: 25px;
+              stroke-width: 1.5px;
+              cursor: pointer;
+              stroke: #868e96;
+            }
+          }
+          .notice-header-bottom {
+            width: 100%;
+            .notice-date {
+              font-size: 14px;
+              color: #868e96;
+              font-weight: 500;
+            }
+          }
+        }
+        .notice-body {
+          padding: 15px 0;
+          p {
+            width: 100%;
+            font-size: 14px;
+            color: black;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

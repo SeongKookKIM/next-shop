@@ -10,3 +10,10 @@ export type UserType = {
   _id?: string;
   image?: string;
 };
+
+export type NoticePostType = {
+  _id: string;
+  title: string;
+  date: Date;
+  description: string;
+};

@@ -31,6 +31,7 @@ function InquryType({
     setInquryType(type);
     setInquryTypeShow(false);
     setInquryTypeChecked(false);
+    document.querySelector("body")?.classList.remove("active");
   };
 
   return (
@@ -41,6 +42,7 @@ function InquryType({
           onClick={() => {
             setInquryTypeShow(false);
             setInquryTypeChecked(false);
+            document.querySelector("body")?.classList.remove("active");
           }}
         />
       </div>

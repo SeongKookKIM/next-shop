@@ -46,6 +46,9 @@ function SubNav({ title }: PropsType) {
       case "회원정보":
         router.push("/mypage");
         break;
+      case "문의하기":
+        router.back();
+        break;
     }
   };
 

@@ -163,7 +163,7 @@ function page() {
               type="text"
               placeholder="닉네임은 2자 이상 입력해주세요."
               aria-invalid={
-                isSubmitted ? (errors.nickname ? "true" : "false") : undefined
+                isSubmitted ? (errors.nickName ? "true" : "false") : undefined
               }
               {...register("nickName", {
                 required: "* 필수 입력란입니다.",
@@ -173,9 +173,9 @@ function page() {
                 },
               })}
             />
-            {errors.nickname && (
+            {errors.nickName && (
               <p className="join-alert">
-                {errors.nickname.message?.toString() ?? ""}
+                {errors.nickName.message?.toString() ?? ""}
               </p>
             )}
           </div>

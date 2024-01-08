@@ -955,3 +955,150 @@ body.active {
     }
   }
 }
+// Inqury
+.inqury-page {
+  width: 100%;
+  @include suvNavStyle();
+  padding-top: 55px;
+  .inqury-inner {
+    width: 90%;
+    margin: 0 auto;
+    form {
+      width: 100%;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        label {
+          font-size: 13px;
+          color: black;
+          font-weight: 600;
+          span {
+            font-weight: 500;
+            color: red;
+          }
+        }
+        .inqury-type-input.checked {
+          transition: 0.5s;
+          border-bottom: 2px solid #212529;
+        }
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          border-bottom: 2px solid #868e96;
+          font-size: 14px;
+          padding: 10px 0;
+          font-weight: 600;
+          transition: 0.5s;
+        }
+
+        textarea {
+          width: 100%;
+          height: auto;
+          border: none;
+          outline: none;
+          border-bottom: 2px solid #868e96;
+          resize: none;
+          font-family: $font;
+          font-weight: 600;
+          font-size: 14px;
+          padding: 10px 0;
+        }
+        .alert {
+          margin-top: 4px;
+          font-size: 11px;
+          color: red;
+          font-weight: 500;
+        }
+      }
+      button {
+        width: 100%;
+        font-size: 14px;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 500;
+        color: white;
+        background-color: #212529;
+        border: none;
+        outline: none;
+        padding: 14px 0;
+
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+    }
+  }
+  .inqury-bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .inqury-bg.show {
+    opacity: 1;
+    transition: 0.3s;
+  }
+  .inqury-type-box.show {
+    transform: translateY(0%);
+    transition: 0.5s;
+  }
+
+  .inqury-type-box {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 110;
+    background-color: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform: translateY(100%);
+    transition: 0.5s;
+    .inqury-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 15px;
+      strong {
+        font-size: 16px;
+      }
+      svg {
+        width: 25px;
+        height: 25px;
+        stroke-width: 1.5px;
+        cursor: pointer;
+        stroke: #868e96;
+      }
+    }
+    .inqury-body {
+      width: 100%;
+      ul {
+        width: 100%;
+        li {
+          width: 100%;
+          padding: 10px 0;
+          cursor: pointer;
+          border-bottom: 1px solid #f1f3f5;
+          &:last-child {
+            border: none;
+          }
+          span {
+            font-size: 13px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

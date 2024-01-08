@@ -1,4 +1,9 @@
+"use client";
+import { useRouter } from "next/navigation";
+
 function Footer() {
+  let router = useRouter();
+
   return (
     <div className="footer">
       <div className="footer-inner">
@@ -12,7 +17,13 @@ function Footer() {
               <span>공지사항</span>
             </li>
             <li>
-              <span>문의하기</span>
+              <span
+                onClick={() => {
+                  router.push("/inqury");
+                }}
+              >
+                문의하기
+              </span>
             </li>
           </ul>
         </div>

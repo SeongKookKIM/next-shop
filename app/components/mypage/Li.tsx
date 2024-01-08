@@ -36,7 +36,7 @@ function Li({ title, session }: PropsType) {
         router.push(`/profile/${userName}?name=${userName}`);
         break;
       case "공지사항":
-        router.push("/");
+        router.push("/notice");
         break;
       case "문의하기":
         router.push("/inqury");

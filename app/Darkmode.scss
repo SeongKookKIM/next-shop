@@ -85,7 +85,8 @@ body.dark-mode {
   .login-page,
   .join-page,
   .mypage-page,
-  .profile-page {
+  .profile-page,
+  .inqury-page {
     .m-sub-nav {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background-color: #222;
@@ -178,6 +179,31 @@ body.dark-mode {
       }
       .profile-secession {
         span {
+          color: white;
+        }
+      }
+    }
+  }
+  .inqury-page {
+    .inqury-inner {
+      form {
+        label {
+          color: white;
+        }
+        input {
+          background-color: transparent;
+          color: white;
+          &::placeholder {
+            color: #868e96;
+          }
+          border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .inqury-type-input.checked {
+          border-bottom: 2px solid #fff;
+        }
+        textarea {
+          border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+          background-color: transparent;
           color: white;
         }
       }

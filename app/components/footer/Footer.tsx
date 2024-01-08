@@ -14,7 +14,13 @@ function Footer() {
         <div className="footer-info-list">
           <ul>
             <li>
-              <span>공지사항</span>
+              <span
+                onClick={() => {
+                  router.push("/notice");
+                }}
+              >
+                공지사항
+              </span>
             </li>
             <li>
               <span

@@ -49,6 +49,9 @@ function SubNav({ title }: PropsType) {
       case "문의하기":
         router.back();
         break;
+      case "공지사항":
+        router.back();
+        break;
     }
   };
 

@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export type CookieType = string;
 
 export type UserType = {
@@ -16,4 +18,15 @@ export type NoticePostType = {
   title: string;
   date: Date;
   description: string;
+};
+
+export type CommnunityPostType = {
+  _id: string;
+  userId: string;
+  userName: string;
+  type: string;
+  title: string;
+  content: string;
+  date: Date;
+  count: number;
 };

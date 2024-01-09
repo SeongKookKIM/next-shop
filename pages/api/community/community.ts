@@ -20,6 +20,7 @@ export default async function handler(
       title: req.body.title,
       content: req.body.content,
       date: new Date(),
+      count: 0,
     };
 
     let insertDb = await db.collection("community").insertOne(insertData);

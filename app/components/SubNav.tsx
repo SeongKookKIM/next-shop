@@ -4,6 +4,7 @@ import DarkMode from "@/app/DarkMode";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LuArrowLeft } from "react-icons/lu";
+import NavSlide from "./community/NavSlide";
 
 interface PropsType {
   title: string;
@@ -52,19 +53,28 @@ function SubNav({ title }: PropsType) {
       case "공지사항":
         router.back();
         break;
+      case "커뮤니티":
+        router.back();
+        break;
+      case "글쓰기":
+        router.back();
+        break;
     }
   };
 
   return (
-    <div className={isNavVisible ? "m-sub-nav" : "m-sub-nav hide"}>
-      <div className="m-sub-nav-inner">
-        <div className="back title">
-          <LuArrowLeft onClick={handlerRouter} />
-          <span>{title}</span>
+    <>
+      <div className={isNavVisible ? "m-sub-nav" : "m-sub-nav hide"}>
+        <div className="m-sub-nav-inner">
+          <div className="back title">
+            <LuArrowLeft onClick={handlerRouter} />
+            <span>{title}</span>
+          </div>
+          <DarkMode />
         </div>
-        <DarkMode />
+        {title === "커뮤니티" && <NavSlide />}
       </div>
-    </div>
+    </>
   );
 }
 

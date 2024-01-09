@@ -60,6 +60,26 @@ $colorBlue: #3b5bdb;
         }
       }
     }
+    .nav-swiper {
+      width: 100%;
+      background-color: white;
+      border-bottom: 1px solid #f1f3f5;
+      .swiper-slide {
+        width: auto !important;
+        padding: 10px;
+        &:first-child {
+          padding-left: 5%;
+        }
+        span {
+          font-size: 16px;
+          color: #868e96;
+          font-weight: 600;
+        }
+        span.active {
+          color: #222;
+        }
+      }
+    }
   }
 }
 
@@ -1229,5 +1249,32 @@ body.active {
         }
       }
     }
+  }
+}
+// community
+.community-page {
+  width: 100%;
+  @include suvNavStyle();
+  padding-top: 100px;
+  .commnuity-write-btn {
+    width: 14%;
+    aspect-ratio: 1/1;
+    background-color: $colorPuple;
+    position: fixed;
+    right: 5%;
+    bottom: 15%;
+    @include flexCenter();
+    border-radius: 50%;
+    cursor: pointer;
+    svg {
+      width: 50%;
+      height: 50%;
+      stroke: #f1f3f5;
+    }
+  }
+  .community-inner {
+    width: 90%;
+    margin: 0 auto;
+    height: 100vh;
   }
 }

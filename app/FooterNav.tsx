@@ -60,7 +60,11 @@ export default function FooterNav() {
             <span>홈</span>
           </li>
 
-          <li>
+          <li
+            onClick={() => {
+              router.push("/community");
+            }}
+          >
             <FcComments />
             <span>커뮤니티</span>
           </li>

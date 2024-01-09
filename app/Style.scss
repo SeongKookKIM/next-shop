@@ -1278,3 +1278,136 @@ body.active {
     height: 100vh;
   }
 }
+
+// community Write
+.community-write-page {
+  width: 100%;
+  @include suvNavStyle();
+  padding-top: 55px;
+  .cm-write-inner {
+    width: 100%;
+    margin: 0 auto;
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .cm-type,
+      .cm-title,
+      .editor {
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        padding: 14px 5%;
+        font-size: 15px;
+        font-weight: $font;
+        font-weight: 600;
+        &:first-child {
+          border-bottom: 2px solid #f1f3f5;
+        }
+        &::placeholder {
+          font-family: $font;
+          color: #868e96;
+          font-weight: 500;
+        }
+      }
+
+      .ProseMirror.toastui-editor-contents {
+        p {
+          font-size: 15px;
+        }
+      }
+      .toastui-editor-popup {
+        margin: 0;
+      }
+
+      button.cm-submit {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 14px;
+        font-family: $font;
+        font-weight: 500;
+        color: white;
+        background-color: #212529;
+        border: none;
+        outline: none;
+        padding: 14px 0;
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+    }
+    .cm-bg {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      opacity: 0;
+      transition: 0.5s;
+    }
+    .cm-bg.show {
+      opacity: 1;
+      transition: 0.3s;
+    }
+    .cm-type-box.show {
+      transform: translateY(0%);
+      transition: 0.5s;
+    }
+
+    .cm-type-box {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 110;
+      background-color: white;
+      padding: 15px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transform: translateY(100%);
+      transition: 0.5s;
+      .type-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        strong {
+          font-size: 16px;
+        }
+        svg {
+          width: 25px;
+          height: 25px;
+          stroke-width: 1.5px;
+          cursor: pointer;
+          stroke: #868e96;
+        }
+      }
+      .type-body {
+        width: 100%;
+        ul {
+          width: 100%;
+          li {
+            width: 100%;
+            padding: 10px 0;
+            cursor: pointer;
+            border-bottom: 1px solid #f1f3f5;
+            &:last-child {
+              border: none;
+            }
+            span {
+              font-size: 14px;
+              font-weight: 600;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}

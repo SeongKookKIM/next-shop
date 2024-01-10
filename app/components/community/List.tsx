@@ -1,6 +1,5 @@
-"use client";
-
 import { CommnunityPostType } from "@/app/Type";
+import Link from "next/link";
 import { LuMail } from "react-icons/lu";
 
 interface ListPropsType {
@@ -16,17 +15,21 @@ function List({ findList }: ListPropsType) {
             {findList.map((list, idx) => {
               return (
                 <li key={idx}>
-                  <strong className="community-list-title">{list.title}</strong>
-                  <div className="community-list-info">
-                    <span>{list.type}</span>
-                    <span>·</span>
-                    <span>{list.userName}</span>
-                    <span>·</span>
-                    <div className="comment">
-                      <LuMail />
-                      <span>{list.count}</span>
+                  <Link prefetch={true} href={`/community/${list._id}`}>
+                    <strong className="community-list-title">
+                      {list.title}
+                    </strong>
+                    <div className="community-list-info">
+                      <span>{list.type}</span>
+                      <span>·</span>
+                      <span>{list.userName}</span>
+                      <span>·</span>
+                      <div className="comment">
+                        <LuMail />
+                        <span>{list.count}</span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </li>
               );
             })}

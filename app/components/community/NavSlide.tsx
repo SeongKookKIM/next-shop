@@ -46,7 +46,7 @@ function NavSlide() {
   return (
     <div className="nav-swiper">
       <Swiper
-        slidesPerView={4.1}
+        slidesPerView={3.9}
         spaceBetween={0}
         freeMode={true}
         pagination={{

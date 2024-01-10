@@ -64,6 +64,9 @@ function page() {
           if (res.status === 200) {
             alert(res.data);
             router.push("/community");
+            setTimeout(() => {
+              router.refresh();
+            }, 100);
           } else {
             alert("글 작성에 실패하였습니다.");
             window.location.reload();

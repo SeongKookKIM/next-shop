@@ -1284,6 +1284,11 @@ body.active {
         flex-direction: column;
         border-bottom: 2px solid #f1f3f5;
         padding: 14px 0;
+        a {
+          display: block;
+          text-decoration: none;
+          cursor: pointer;
+        }
         strong {
           font-size: 15px;
           width: 100%;
@@ -1291,6 +1296,7 @@ body.active {
           overflow: hidden;
           text-overflow: ellipsis;
           margin-bottom: 10px;
+          color: black;
         }
         .community-list-info {
           width: 100%;
@@ -1452,5 +1458,111 @@ body.active {
         }
       }
     }
+  }
+}
+// Community-detail
+.cm-detail {
+  width: 100%;
+  .cm-detail-top-inner {
+    width: 100%;
+    border-bottom: 10px solid #f1f3f5;
+    .cm-detail-top {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px 0;
+      .cm-detail-type {
+        width: 100%;
+
+        span {
+          font-size: 12px;
+          font-weight: 600;
+          color: #222;
+          background-color: #f1f3f5;
+          padding: 3px 7px;
+          border-radius: 10px;
+        }
+      }
+      .cm-detail-title {
+        width: 100%;
+        strong {
+          font-size: 20px;
+        }
+      }
+      .cm-detail-user-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        .cm-detail-user-info-left {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 7px;
+          .cm-detail-user-image {
+            width: 40px;
+            height: 40px;
+            border: 1px solid white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+            background-color: rgb(0 0 0 / 15%);
+            overflow: hidden;
+            @include flexCenter();
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            svg {
+              width: 100%;
+              height: 100%;
+              stroke-width: 1px;
+              stroke: white;
+            }
+          }
+          .cm-detail-user-info {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            span {
+              font-size: 13px;
+              font-weight: 500;
+              color: #222;
+              &:last-child {
+                color: #868e96;
+              }
+            }
+          }
+        }
+        .cm-detail-user-info-right {
+          cursor: pointer;
+          span {
+            font-size: 16px;
+            letter-spacing: -2px;
+            font-weight: 700;
+            color: #868e96;
+          }
+        }
+      }
+    }
+  }
+
+  .cm-detail-mid-inner {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 10px solid #f1f3f5;
+    .cm-detail-mid {
+      width: 90%;
+      margin: 0 auto;
+      font-size: 14px;
+    }
+  }
+  .cm-detail-bottom-inner {
+    padding: 50px 0;
   }
 }

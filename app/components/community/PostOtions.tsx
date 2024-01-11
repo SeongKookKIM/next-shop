@@ -63,7 +63,7 @@ function PostOtions({
                 document.querySelector("body")?.classList.remove("active");
               }}
               className={
-                findUserName === session.data?.user?.name ||
+                findUserName === session.data?.user?.name &&
                 session.data?.user?.nickName
                   ? ""
                   : "block"
@@ -76,7 +76,7 @@ function PostOtions({
             <span
               onClick={handlerDeletePost}
               className={
-                findUserName === session.data?.user?.name ||
+                findUserName === session.data?.user?.name &&
                 session.data?.user?.nickName
                   ? ""
                   : "block"

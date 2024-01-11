@@ -4,12 +4,10 @@ import { Editor } from "@toast-ui/react-editor";
 
 interface EdtorPropsType {
   editorRef: React.MutableRefObject<any>;
+  content: string;
 }
 
-function WriteEditor({ editorRef }: EdtorPropsType) {
-  // 줄바꿈
-  // replace(/\n/g, "<br>");
-
+function WriteEditor({ editorRef, content }: EdtorPropsType) {
   return (
     <>
       <Editor
@@ -17,7 +15,7 @@ function WriteEditor({ editorRef }: EdtorPropsType) {
         initialEditType="wysiwyg"
         hideModeSwitch={true}
         placeholder="글 내용을 입력해주세요."
-        initialValue=" "
+        initialValue={content ? content : " "}
         toolbarItems={[
           ["heading", "bold", "italic", "strike"],
           ["hr", "quote"],

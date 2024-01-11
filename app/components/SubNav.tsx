@@ -59,6 +59,9 @@ function SubNav({ title }: PropsType) {
       case "글쓰기":
         router.back();
         break;
+      case "글수정":
+        router.back();
+        break;
     }
   };
 

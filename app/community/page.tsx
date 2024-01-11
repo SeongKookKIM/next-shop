@@ -8,7 +8,7 @@ async function page() {
   const findList: CommnunityPostType[] | undefined = (
     await db.collection("community").find({ type: "자유게시판" }).toArray()
   ).map((item) => ({
-    _id: item._id.toString(),
+    _id: item._id,
     userId: item.userId,
     userName: item.userName,
     type: item.type,

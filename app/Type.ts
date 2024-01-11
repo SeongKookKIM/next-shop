@@ -21,7 +21,7 @@ export type NoticePostType = {
 };
 
 export type CommnunityPostType = {
-  _id: string;
+  _id: ObjectId;
   userId: string;
   userName: string;
   type: string;

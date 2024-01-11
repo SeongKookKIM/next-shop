@@ -1,10 +1,8 @@
-import { CommnunityPostType } from "@/app/Type";
+import Comment from "@/app/components/community/Comment";
 import Content from "@/app/components/community/Content";
 import DetailBtn from "@/app/components/community/DetailBtn";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { connectDB } from "@/util/MongoData";
 import { ObjectId } from "mongodb";
-import { Session, getServerSession } from "next-auth";
 
 import { LuUser } from "react-icons/lu";
 
@@ -18,11 +16,6 @@ async function page(props: PropsType) {
   const findPost = await db
     .collection("community")
     .findOne({ _id: new ObjectId(props.params.id) });
-
-  let session: Session | null = await getServerSession(authOptions);
-
-  // console.log(findPost);
-  // console.log(session?.user);
 
   return (
     <>
@@ -58,7 +51,12 @@ async function page(props: PropsType) {
               <Content content={findPost.content} />
             </div>
           </div>
-          <div className="cm-detail-bottom-inner"></div>
+          <div className="cm-detail-bottom-inner">
+            <Comment
+              postId={findPost._id.toString()}
+              postCount={findPost.count}
+            />
+          </div>
         </div>
       ) : (
         ""

@@ -1,8 +1,6 @@
-import { UserType } from "@/app/Type";
 import { connectDB } from "@/util/MongoData";
 import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
-import { getToken } from "next-auth/jwt";
 
 export default async function handler(
   req: NextApiRequest,

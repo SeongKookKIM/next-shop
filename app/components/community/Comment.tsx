@@ -1,4 +1,3 @@
-import { CommnunityPostType } from "@/app/Type";
 import CommentWrite from "./CommentWrite";
 import { Session, getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";

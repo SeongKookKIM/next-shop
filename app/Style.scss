@@ -1525,6 +1525,11 @@ body.active {
               stroke-width: 1px;
               stroke: white;
             }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
           }
           .cm-detail-user-info {
             width: auto;
@@ -1728,6 +1733,151 @@ body.active {
                 padding: 6px 14px;
                 cursor: pointer;
               }
+            }
+          }
+        }
+      }
+    }
+    .comment-list {
+      width: 100%;
+      ul {
+        width: 100%;
+        li {
+          width: 100%;
+          padding: 14px 5%;
+          border-bottom: 1px solid #f1f3f5;
+          &:last-child {
+            border: none;
+          }
+          .comment-list-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            .comment-list-user {
+              display: flex;
+              align-items: center;
+              gap: 7px;
+              .comment-list-user-image {
+                width: 27px;
+                height: 27px;
+                border: 1px solid white;
+                border-radius: 50%;
+                box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+                background-color: rgba(0, 0, 0, 0.15);
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  width: 100%;
+                  object-fit: cover;
+                }
+                svg {
+                  width: 27px;
+                  height: 27px;
+                  stroke-width: 1px;
+                  stroke: white;
+                }
+              }
+              .comment-list-user-name {
+                p {
+                  font-size: 14px;
+                  font-weight: 600;
+                }
+              }
+            }
+            .comment-list-options {
+              span {
+                font-size: 16px;
+                letter-spacing: -2px;
+                font-weight: 700;
+                color: #868e96;
+                cursor: pointer;
+              }
+              .community-bg {
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 100;
+                opacity: 0;
+                transition: 0.5s;
+              }
+              .community-bg.show {
+                opacity: 1;
+                transition: 0.3s;
+              }
+              .comment-options.show {
+                transform: translateY(0%);
+                transition: 0.5s;
+              }
+              .comment-options {
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 110;
+                transform: translateY(100%);
+                transition: 0.5s;
+                .comment-options-inner {
+                  width: 90%;
+                  margin: 0 auto;
+                  ul {
+                    width: 100%;
+                    background-color: white;
+                    border-radius: 10px;
+                    li {
+                      padding: 14px 0;
+                      border-bottom: 1px solid #f1f3f5;
+                      @include flexCenter();
+                      cursor: pointer;
+                      span {
+                        font-size: 14px;
+                        color: black;
+                        font-weight: 500;
+                      }
+                      span.block {
+                        color: #868e96;
+                        pointer-events: none;
+                      }
+                      &:last-child {
+                        border: none;
+                      }
+                    }
+                  }
+                  button {
+                    width: 100%;
+                    margin: 10px 0;
+                    font-family: $font;
+                    color: #868e96;
+                    font-weight: 500;
+                    font-size: 14px;
+                    padding: 14px 0;
+                    border-radius: 10px;
+                    border: none;
+                    outline: none;
+                    background-color: white;
+                  }
+                }
+              }
+            }
+          }
+          .commnet-list-mid {
+            width: 100%;
+            p {
+              width: 100%;
+              font-size: 14px;
+              font-weight: 500;
+              margin-bottom: 7px;
+            }
+            span {
+              font-size: 13px;
+              color: #868e96;
+              font-weight: 500;
             }
           }
         }

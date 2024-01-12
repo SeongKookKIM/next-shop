@@ -25,6 +25,7 @@ export default async function handler(
     const commentData = {
       postId: req.body._id,
       commentName: user.name || user.nickName,
+      commentImage: req.body.image,
       comment: req.body.comment,
       date: new Date(),
     };

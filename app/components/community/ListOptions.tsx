@@ -1,21 +1,18 @@
 "use client";
 
 import axios from "axios";
+import { ObjectId } from "mongodb";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-interface CommunityBgType {
-  setClickBtn: React.Dispatch<React.SetStateAction<boolean>>;
-  findPostId: string | undefined;
-  findUserName: string | undefined;
+interface CommentListType {
+  setBgShow: React.Dispatch<React.SetStateAction<boolean>>;
+  commentId: ObjectId | undefined;
+  commentName: string | undefined;
 }
 
-function PostOtions({
-  setClickBtn,
-  findPostId,
-  findUserName,
-}: CommunityBgType) {
+function ListOptions({ setBgShow, commentId, commentName }: CommentListType) {
   const [show, setShow] = useState<string>("");
 
   let session = useSession();
@@ -33,14 +30,14 @@ function PostOtions({
     };
   }, []);
 
-  const handlerDeletePost = () => {
-    if (window.confirm("게시물을 삭제하시겠습니까?")) {
+  const handlerDeleteComment = () => {
+    if (window.confirm("댓글을 삭제하시겠습니까?")) {
       axios
-        .post(`/api/community/delete?id=${findPostId}`)
+        .post("/api/community/commentDelete", { _id: commentId })
         .then((res) => {
           if (res.status === 200) {
             alert(res.data);
-            router.push("/community");
+            document.querySelector("body")?.classList.remove("active");
             setTimeout(() => {
               router.refresh();
             }, 100);
@@ -53,33 +50,16 @@ function PostOtions({
   };
 
   return (
-    <div className={`community-options ${show}`}>
-      <div className="community-options-inner">
+    <div className={`comment-options ${show}`}>
+      <div className="comment-options-inner">
         <ul>
           <li>
             <span
-              onClick={() => {
-                router.push(`/communityEdit/${findPostId}`);
-                document.querySelector("body")?.classList.remove("active");
-              }}
+              onClick={handlerDeleteComment}
               className={
-                findUserName === session.data?.user?.name
+                commentName === session.data?.user?.name
                   ? "name"
-                  : findUserName === session.data?.user?.nickName
-                  ? "nickName"
-                  : "block"
-              }
-            >
-              수정하기
-            </span>
-          </li>
-          <li>
-            <span
-              onClick={handlerDeletePost}
-              className={
-                findUserName === session.data?.user?.name
-                  ? "name"
-                  : findUserName === session.data?.user?.nickName
+                  : commentName === session.data?.user?.nickName
                   ? "nickName"
                   : "block"
               }
@@ -95,7 +75,7 @@ function PostOtions({
           type="button"
           onClick={(e) => {
             e.stopPropagation();
-            setClickBtn(false);
+            setBgShow(false);
             document.querySelector("body")?.classList.remove("active");
           }}
         >
@@ -106,4 +86,4 @@ function PostOtions({
   );
 }
 
-export default PostOtions;
+export default ListOptions;

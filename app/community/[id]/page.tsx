@@ -1,4 +1,5 @@
 import Comment from "@/app/components/community/Comment";
+import CommentList from "@/app/components/community/CommentList";
 import Content from "@/app/components/community/Content";
 import DetailBtn from "@/app/components/community/DetailBtn";
 import { connectDB } from "@/util/MongoData";
@@ -32,7 +33,11 @@ async function page(props: PropsType) {
               <div className="cm-detail-user-info">
                 <div className="cm-detail-user-info-left">
                   <div className="cm-detail-user-image">
-                    <LuUser />
+                    {findPost.userImage === "" ? (
+                      <LuUser />
+                    ) : (
+                      <img src={findPost.userImage} alt="user-image"></img>
+                    )}
                   </div>
                   <div className="cm-detail-user-info">
                     <span>{findPost.userName}</span>
@@ -56,6 +61,7 @@ async function page(props: PropsType) {
               postId={findPost._id.toString()}
               postCount={findPost.count}
             />
+            <CommentList postId={findPost._id.toString()} />
           </div>
         </div>
       ) : (

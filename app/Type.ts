@@ -30,3 +30,11 @@ export type CommnunityPostType = {
   date: Date;
   count: number;
 };
+
+export type CommentType = {
+  _id: ObjectId;
+  postId: string;
+  commentName: string;
+  comment: string;
+  date: Date;
+};

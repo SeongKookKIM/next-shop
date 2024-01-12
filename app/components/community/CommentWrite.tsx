@@ -25,6 +25,7 @@ function CommentWrite({ postId, session }: FindPostType) {
     let postData = {
       _id: postId,
       comment,
+      image: session?.user?.image,
     };
 
     if (window.confirm("댓글을 등록하시겠습니까?")) {
@@ -47,7 +48,7 @@ function CommentWrite({ postId, session }: FindPostType) {
     <div className="comment-write-wrapper">
       <div className="comment-write-inner">
         <div className="comment-user">
-          <strong>이름</strong>
+          <strong>{session?.user?.name || session?.user?.nickName}</strong>
         </div>
         <textarea
           typeof="text"

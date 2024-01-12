@@ -16,6 +16,7 @@ export default async function handler(
     let insertData = {
       userId: user.id || "",
       userName: user.name || user.nickName || "",
+      userImage: user.image || "",
       type: req.body.type,
       title: req.body.title,
       content: req.body.content,

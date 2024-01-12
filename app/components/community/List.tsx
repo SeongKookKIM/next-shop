@@ -35,7 +35,9 @@ function List({ findList }: ListPropsType) {
             })}
           </>
         ) : (
-          ""
+          <div className="no-community">
+            <span>게시물이 존재하지 않습니다.</span>
+          </div>
         )}
       </ul>
     </div>

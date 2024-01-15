@@ -43,9 +43,13 @@ export default function FooterNav() {
     <div className={isVisible ? "footer-nav" : "footer-nav hide"}>
       <div className="footer-nav-inner">
         <ul>
-          <li>
+          <li
+            onClick={() => {
+              router.push("/transaction");
+            }}
+          >
             <FcShop />
-            <span>사이트 거래</span>
+            <span>사업자 거래</span>
           </li>
           <li>
             <FcBarChart />

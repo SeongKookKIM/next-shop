@@ -62,6 +62,9 @@ function SubNav({ title }: PropsType) {
       case "글수정":
         router.back();
         break;
+      case "사업자 거래":
+        router.back();
+        break;
     }
   };
 

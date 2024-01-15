@@ -1898,3 +1898,64 @@ body.active {
     }
   }
 }
+
+// Transaction
+.transaction-page {
+  width: 100%;
+  @include suvNavStyle();
+  padding-top: 55px;
+  .transaction-inner {
+    width: 90%;
+    margin: 0 auto;
+    min-height: 60vh;
+    @include flexCenter();
+    .transaction-biz {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .biz-box {
+        width: 47%;
+        padding: 50px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        @include flexCenter();
+        p {
+          font-size: 15px;
+          font-weight: 500;
+          color: white;
+        }
+      }
+      .buy {
+        background-color: $colorBlue;
+        background-image: -webkit-linear-gradient(
+          -45deg,
+          #748ffc 0%,
+          #3b5bdb 80%
+        );
+        box-shadow: 0 4px 10px 0 rgb(59 91 219 / 40%),
+          inset 0px 2px 3px rgb(255 255 255 / 10%),
+          inset 0px 1px 1px rgb(255 255 255 / 20%),
+          inset 0px -2px 3px rgb(0 0 0 / 12%),
+          inset 0px -1px 2px rgb(0 0 0 / 25%);
+      }
+      .sell {
+        background-color: $colorPuple;
+        background-image: -webkit-linear-gradient(
+          -45deg,
+          #9775fa 0%,
+          #6741d9 80%
+        );
+        box-shadow: 0 4px 10px 0 rgb(103 65 217 / 40%),
+          inset 0px 2px 3px rgb(255 255 255 / 10%),
+          inset 0px 1px 1px rgb(255 255 255 / 20%),
+          inset 0px -2px 3px rgb(0 0 0 / 12%),
+          inset 0px -1px 2px rgb(0 0 0 / 25%);
+      }
+    }
+  }
+  .sell {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

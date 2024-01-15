@@ -1,6 +1,6 @@
 import { CommnunityPostType } from "@/app/Type";
 import Link from "next/link";
-import { LuMail } from "react-icons/lu";
+import { FcVoicePresentation } from "react-icons/fc";
 
 interface ListPropsType {
   findList: CommnunityPostType[] | undefined;
@@ -25,7 +25,7 @@ function List({ findList }: ListPropsType) {
                       <span>{list.userName}</span>
                       <span>·</span>
                       <div className="comment">
-                        <LuMail />
+                        <FcVoicePresentation />
                         <span>{list.count}</span>
                       </div>
                     </div>

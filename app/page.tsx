@@ -6,6 +6,8 @@ import wavingHand from "../public/waving-hand.png";
 import HomeBiz from "./components/home/HomeBiz";
 import HomeCommunity from "./components/home/HomeCommunity";
 import { useEffect, useMemo, useState } from "react";
+import { SWRConfig } from "swr";
+import axios from "axios";
 
 export default function Home() {
   const [scrollPos, setScrollPos] = useState<number>(0);
@@ -74,7 +76,13 @@ export default function Home() {
         </div>
 
         {/* 커뮤니티 */}
-        <HomeCommunity />
+        <SWRConfig
+          value={{
+            fetcher: (url: string) => axios.post(url).then((res) => res.data),
+          }}
+        >
+          <HomeCommunity />
+        </SWRConfig>
       </div>
     </div>
   );

@@ -351,6 +351,9 @@ body.active {
     }
     ul {
       width: 100%;
+      a {
+        text-decoration: none;
+      }
       li {
         width: 100%;
         padding: 10px 0;

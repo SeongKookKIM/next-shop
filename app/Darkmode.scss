@@ -87,7 +87,9 @@ body.dark-mode {
   .mypage-page,
   .profile-page,
   .inqury-page,
-  .notice-page {
+  .notice-page,
+  .community-page,
+  .community-write-page {
     .m-sub-nav {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background-color: #222;
@@ -127,6 +129,17 @@ body.dark-mode {
       button {
         background-color: rgb(255 255 255 / 85%);
         color: #222;
+      }
+    }
+    .nav-swiper {
+      background-color: #222;
+      .swiper {
+        span {
+          color: white;
+        }
+        span.active {
+          color: $colorBlue;
+        }
       }
     }
   }
@@ -207,6 +220,149 @@ body.dark-mode {
           background-color: transparent;
           color: white;
         }
+      }
+    }
+  }
+  .community-page {
+    .community-inner {
+      strong {
+        color: white;
+      }
+      .community-list-info {
+        span {
+          color: white;
+        }
+        .comment {
+          span {
+            color: white;
+          }
+        }
+      }
+      .community-list {
+        li {
+          border-bottom: 1px solid #f1f3f5;
+        }
+      }
+    }
+    .cm-detail {
+      strong {
+        color: white;
+      }
+      .cm-detail-top-inner {
+        border-bottom: 10px solid rgba(255, 255, 255, 0.85);
+        .cm-detail-top {
+          .cm-detail-user-info {
+            span {
+              &:nth-child(1) {
+                color: white;
+              }
+            }
+            .cm-detail-user-info-left {
+              .cm-detail-user-image {
+                background-color: rgba(255, 255, 255, 0.85);
+                box-shadow: 0 3px 10px 0 rgba(255, 255, 255, 0.1);
+                svg {
+                  stroke: #222;
+                }
+              }
+            }
+          }
+        }
+      }
+      .cm-detail-mid-inner {
+        border-bottom: 10px solid rgba(255, 255, 255, 0.85);
+        .cm-detail-content {
+          .toastui-editor-contents {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            strong,
+            em {
+              color: white;
+            }
+          }
+        }
+      }
+      .cm-detail-bottom-inner {
+        strong {
+          color: #222;
+        }
+        .comment-list {
+          ul {
+            li {
+              .comment-list-user-image {
+                background-color: rgba(255, 255, 255, 0.85);
+                box-shadow: 0 3px 10px 0 rgba(255, 255, 255, 0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .community-write-page {
+    form {
+      input {
+        background-color: #222;
+        color: white;
+      }
+      .cm-title {
+        input {
+          border: none;
+        }
+      }
+      .editor {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        strong,
+        em {
+          color: white;
+        }
+        .toastui-editor-defaultUI-toolbar,
+        .toastui-editor-contents,
+        .toastui-editor-dropdown-toolbar {
+          background-color: #222;
+          button {
+            background-color: #222;
+            border: none;
+            outline: none;
+            color: white;
+          }
+        }
+      }
+      .toastui-editor-popup {
+        background-color: #222;
+        color: white;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: white;
+        }
+        div {
+          color: white;
+        }
+        li {
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+      button.cm-submit {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #222;
+        font-weight: 500;
       }
     }
   }

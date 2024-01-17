@@ -2,12 +2,12 @@ import "@toast-ui/editor/dist/toastui-editor.css";
 import "@toast-ui/editor/dist/theme/toastui-editor-dark.css";
 import { Editor } from "@toast-ui/react-editor";
 
-interface EdtorPropsType {
+interface EditorPropsType {
   editorRef: React.MutableRefObject<any>;
   content: string;
 }
 
-function WriteEditor({ editorRef, content }: EdtorPropsType) {
+function WriteEditor({ editorRef, content }: EditorPropsType) {
   return (
     <>
       <Editor

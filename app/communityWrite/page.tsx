@@ -118,7 +118,7 @@ function page() {
           )}
         </div>
         <div className="editor">
-          <WriteEditor editorRef={editorRef} />
+          <WriteEditor editorRef={editorRef} content="" />
         </div>
         <button type="submit" disabled={isSubmitting} className="cm-submit">
           작성완료

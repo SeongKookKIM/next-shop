@@ -73,7 +73,7 @@ function page() {
         });
 
         // AWS S3 이미지 주소
-        awsUrl.push(`${result.url}/${imageFileName[i]}`);
+        awsUrl.push(`${result.url}/transaction/${imageFileName[i]}`);
       }
     }
   };

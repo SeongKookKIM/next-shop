@@ -14,11 +14,13 @@ export default async function handler(
 
   let urlArray = [];
 
+  const folderName = "transaction/";
+
   for (let i = 0; i < req.body.image.length; i++) {
     const s3 = new aws.S3();
     const url = await s3.createPresignedPost({
       Bucket: process.env.AWS_BUCKET_NAME,
-      Fields: { key: req.body.image[i] },
+      Fields: { key: folderName + req.body.image[i] },
       Expires: 60,
       Conditions: [["content-length-range", 0, 1048576]],
     });

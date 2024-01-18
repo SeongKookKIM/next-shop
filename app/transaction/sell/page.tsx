@@ -18,8 +18,6 @@ function page() {
   const [previewLogo, setPreviewLogo] = useState<string>("");
   const [logoUrl, setLogoUrl] = useState<string>("");
 
-  console.log(logoUrl);
-
   const imageRef = useRef<HTMLInputElement | null>(null);
   const logoRef = useRef<HTMLInputElement | null>(null);
 
@@ -144,6 +142,7 @@ function page() {
     <div className="sell">
       <strong>사업자 판매</strong>
       <form onSubmit={handleSubmit(handlerSell)}>
+        {/* 이미지 저장 */}
         <div className="add-image sell-box">
           <label>이미지</label>
           <input
@@ -162,6 +161,7 @@ function page() {
           <Image imageRef={imageRef} previewImage={previewImage} />
         </div>
 
+        {/* 제목 */}
         <div className="sell-box">
           <label>
             제목{" "}
@@ -171,6 +171,7 @@ function page() {
           </label>
           <input
             type="text"
+            placeholder="제목을 입력해주세요."
             aria-invalid={
               isSubmitted ? (errors.title ? "true" : "false") : undefined
             }
@@ -180,6 +181,7 @@ function page() {
           />
         </div>
 
+        {/* 상호 */}
         <div className="sell-box">
           <label>
             상호{" "}
@@ -189,6 +191,7 @@ function page() {
           </label>
           <input
             type="text"
+            placeholder="상호를 입력해주세요."
             aria-invalid={
               isSubmitted ? (errors.shopName ? "true" : "false") : undefined
             }
@@ -198,6 +201,7 @@ function page() {
           />
         </div>
 
+        {/* 로고 */}
         <div className="logo-box sell-box">
           <label>로고 등록</label>
           <input
@@ -216,6 +220,170 @@ function page() {
           <div className="logo-add" onClick={() => logoRef.current?.click()}>
             {previewLogo === "" ? <LuPlus /> : <img src={previewLogo} />}
           </div>
+        </div>
+
+        {/* URL */}
+        <div className="sell-box">
+          <label>
+            URL{" "}
+            {errors.url && (
+              <p className="alert">{errors.url.message?.toString()}</p>
+            )}
+          </label>
+          <input
+            type="text"
+            placeholder="URL을 입력해주세요."
+            aria-invalid={
+              isSubmitted ? (errors.url ? "true" : "false") : undefined
+            }
+            {...register("url", {
+              required: "* 필수 입력란입니다.",
+            })}
+          />
+        </div>
+
+        {/* 가격 */}
+        <div className="sell-box">
+          <label>
+            판매 가격{" "}
+            {errors.price && (
+              <p className="alert">{errors.price.message?.toString()}</p>
+            )}
+          </label>
+          <div className="number-box">
+            <input
+              type="number"
+              placeholder="숫자만 입력해주세요."
+              aria-invalid={
+                isSubmitted ? (errors.price ? "true" : "false") : undefined
+              }
+              {...register("price", {
+                required: "* 필수 입력란입니다.",
+              })}
+            />
+            <span>만원</span>
+          </div>
+        </div>
+
+        {/* 월매출 */}
+        <div className="sell-box">
+          <label>
+            월매출{" "}
+            {errors.sales && (
+              <p className="alert">{errors.sales.message?.toString()}</p>
+            )}
+          </label>
+          <div className="number-box">
+            <input
+              type="number"
+              placeholder="숫자만 입력해주세요."
+              aria-invalid={
+                isSubmitted ? (errors.sales ? "true" : "false") : undefined
+              }
+              {...register("sales", {
+                required: "* 필수 입력란입니다.",
+              })}
+            />
+            <span>만원</span>
+          </div>
+        </div>
+
+        {/* 월수익 */}
+        <div className="sell-box">
+          <label>
+            월수익{" "}
+            {errors.revenue && (
+              <p className="alert">{errors.revenue.message?.toString()}</p>
+            )}
+          </label>
+          <div className="number-box">
+            <input
+              type="number"
+              placeholder="숫자만 입력해주세요."
+              aria-invalid={
+                isSubmitted ? (errors.revenue ? "true" : "false") : undefined
+              }
+              {...register("revenue", {
+                required: "* 필수 입력란입니다.",
+              })}
+            />
+            <span>만원</span>
+          </div>
+        </div>
+
+        {/* 판매자 정보 */}
+        <strong>판매자 정보</strong>
+
+        {/* 이름 */}
+        <div className="sell-box">
+          <label>
+            판매자 이름{" "}
+            {errors.name && (
+              <p className="alert">{errors.name.message?.toString()}</p>
+            )}
+          </label>
+          <input
+            type="text"
+            placeholder="판매자 성함을 입력해주세요."
+            aria-invalid={
+              isSubmitted ? (errors.name ? "true" : "false") : undefined
+            }
+            {...register("name", {
+              required: "* 필수 입력란입니다.",
+            })}
+          />
+        </div>
+
+        {/* 연락처 */}
+        <div className="sell-box">
+          <label>
+            판매자 연락처{" "}
+            {errors.phone && (
+              <p className="alert">{errors.phone.message?.toString()}</p>
+            )}
+          </label>
+          <input
+            type="number"
+            placeholder="- 제외하고 숫자만 입력해주세요."
+            aria-invalid={
+              isSubmitted ? (errors.phone ? "true" : "false") : undefined
+            }
+            {...register("phone", {
+              required: "* 필수 입력란입니다.",
+              pattern: {
+                value: /^[0-9]*$/,
+                message: "* 올바른 핸드폰 번호를 입력해주세요.",
+              },
+              maxLength: {
+                value: 11,
+                message: "* 최대 11자리까지 입력 가능합니다.",
+              },
+            })}
+          />
+        </div>
+
+        {/* 이메일 */}
+        <div className="sell-box">
+          <label>
+            판매자 이메일{" "}
+            {errors.email && (
+              <p className="alert">{errors.email.message?.toString()}</p>
+            )}
+          </label>
+          <input
+            type="text"
+            placeholder="올바른 이메일을 입력해주세요."
+            aria-invalid={
+              isSubmitted ? (errors.email ? "true" : "false") : undefined
+            }
+            {...register("email", {
+              required: "* 필수 입력란입니다.",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "* 올바른 이메일 주소를 입력하세요.",
+              },
+            })}
+          />
         </div>
 
         <button type="submit" disabled={isSubmitting}>

@@ -1957,5 +1957,85 @@ body.active {
   .sell {
     width: 90%;
     margin: 0 auto;
+    strong {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      color: #222;
+      margin: 20px 0;
+    }
+    form {
+      width: 100%;
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #868e96;
+        margin-bottom: 10px;
+      }
+      .add-image {
+        .transaction-image-slide {
+          width: 100%;
+          height: 200px;
+          border-radius: 20px;
+          overflow: hidden;
+          .transaction-image-swiper {
+            width: 100%;
+            height: 100%;
+            .swiper-slide.add-image {
+              background-color: #f1f3f5;
+              @include flexCenter();
+              flex-direction: column;
+              cursor: pointer;
+              svg {
+                width: 30px;
+                height: 30px;
+                stroke: #868e96;
+              }
+              span {
+                font-size: 12px;
+                font-family: 500;
+                color: #868e96;
+              }
+            }
+            .swiper-slide.add-image-list {
+              @include flexCenter();
+              background-color: #f1f3f5;
+              img {
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+          transform: scale(0.3);
+          color: #222;
+          font-weight: 600;
+        }
+      }
+      .logo-box {
+        .logo-add {
+          width: 70px;
+          height: 70px;
+          @include flexCenter();
+          background-color: #f1f3f5;
+          border-radius: 10px;
+          overflow: hidden;
+          cursor: pointer;
+          svg {
+            width: 30px;
+            height: 30px;
+            stroke: #868e96;
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
   }
 }

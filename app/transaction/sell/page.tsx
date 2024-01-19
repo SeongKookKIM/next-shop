@@ -2,6 +2,7 @@
 
 import Image from "@/app/components/transaction/sell/Image";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -11,15 +12,15 @@ function page() {
   const [image, setImage] = useState<string[]>([]);
   const [imageFileName, setImageFileName] = useState<string[]>([]);
   const [previewImage, setPreviewImage] = useState<string[]>([]);
-  const [awsUrl, setAwsUrl] = useState<string[]>([]);
 
   const [logoSrc, setLogoSrc] = useState<string>("");
   const [logofile, setLogofile] = useState<string>("");
   const [previewLogo, setPreviewLogo] = useState<string>("");
-  const [logoUrl, setLogoUrl] = useState<string>("");
 
   const imageRef = useRef<HTMLInputElement | null>(null);
   const logoRef = useRef<HTMLInputElement | null>(null);
+
+  let router = useRouter();
 
   const {
     register,
@@ -84,57 +85,120 @@ function page() {
   const handlerSell = async (data: any) => {
     await new Promise((r) => setTimeout(r, 1000));
 
-    // Image
-    let formArray: any;
+    if (window.confirm("판매 등록하시겠습니까?")) {
+      const handlerAwsImage = async () => {
+        // Image
+        let formArray: any;
+        const awsUrl: string[] = [];
 
-    await axios
-      .post("/api/transaction/image", { image: imageFileName })
-      .then((res) => {
-        formArray = res.data;
-      })
-      .catch((err) => console.log(err));
+        try {
+          const res = await axios.post("/api/transaction/image", {
+            image: imageFileName,
+          });
+          formArray = res.data;
 
-    if (formArray && formArray.length > 0) {
-      for (let i = 0; i < formArray.length; i++) {
-        const formData = new FormData();
-        Object.entries({ ...formArray[i].fields, file: image[i] }).forEach(
-          ([key, value]) => {
-            formData.append(key, value as string);
+          if (formArray && formArray.length > 0) {
+            for (let i = 0; i < formArray.length; i++) {
+              const formData = new FormData();
+              Object.entries({
+                ...formArray[i].fields,
+                file: image[i],
+              }).forEach(([key, value]) => {
+                formData.append(key, value as string);
+              });
+
+              let result = await fetch(formArray[i].url, {
+                method: "POST",
+                body: formData,
+              });
+
+              if (result.ok) {
+                // AWS S3 Image 이미지 주소
+                awsUrl.push(`${result.url}/transaction/${imageFileName[i]}`);
+              } else {
+                alert("이미지 업로드 실패");
+              }
+            }
           }
-        );
+        } catch (err) {
+          throw err;
+        }
 
-        let result = await fetch(formArray[i].url, {
-          method: "POST",
-          body: formData,
-        });
+        return awsUrl;
+      };
 
-        // AWS S3 Image 이미지 주소
-        awsUrl.push(`${result.url}/transaction/${imageFileName[i]}`);
+      const handlerAwsLogo = async () => {
+        // Logo
+        let logoUrl: string;
+
+        try {
+          let logoResult = await fetch(
+            "/api/transaction/logo?file=" + logoSrc
+          ).then((r) => r.json());
+
+          const logoFormData = new FormData();
+          Object.entries({ ...logoResult.fields, file: logofile }).forEach(
+            ([key, value]) => {
+              logoFormData.append(key, value as string);
+            }
+          );
+
+          let logoUpload = await fetch(logoResult.url, {
+            method: "POST",
+            body: logoFormData,
+          });
+
+          if (logoUpload.ok) {
+            // AWS S3 Logo 이미지 주소
+            logoUrl = `${logoUpload.url}/logo/${logoSrc}`;
+          } else {
+            alert("로고 이미지 업로드 실패");
+            throw new Error("로고 이미지 업로드 실패");
+          }
+        } catch (err) {
+          throw err;
+        }
+
+        return logoUrl;
+      };
+
+      try {
+        const [awsUrl, logoUrl] = await Promise.all([
+          handlerAwsImage(),
+          handlerAwsLogo(),
+        ]);
+
+        const postDbData = {
+          userName: "",
+          userId: "",
+          image: awsUrl,
+          logo: logoUrl,
+          title: data.title,
+          shopName: data.shopName,
+          url: data.url,
+          price: parseInt(data.price),
+          sales: parseInt(data.sales),
+          revenue: parseInt(data.revenue),
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          date: new Date(),
+        };
+
+        await axios
+          .post("/api/transaction/add", postDbData)
+          .then((res) => {
+            alert(res.data);
+            router.push("/transaction");
+            router.refresh();
+          })
+          .catch((err) => console.log(err));
+      } catch (error) {
+        console.log(error);
+        alert("이미지 및 로고 처리 중 오류 발생");
       }
-    }
-
-    // Logo
-    let logoResult = await fetch("/api/transaction/logo?file=" + logoSrc).then(
-      (r) => r.json()
-    );
-
-    const logoFormData = new FormData();
-    Object.entries({ ...logoResult.fields, file: logofile }).forEach(
-      ([key, value]) => {
-        logoFormData.append(key, value as string);
-      }
-    );
-
-    let logoUpload = await fetch(logoResult.url, {
-      method: "POST",
-      body: logoFormData,
-    });
-
-    if (logoUpload) {
-      // AWS S3 Logo 이미지 주소
-      setLogoUrl(`${logoUpload.url}/logo/${logoSrc}`);
     } else {
-      alert("로고 이미지 업로드 실패");
+      return;
     }
   };
 
@@ -172,6 +236,7 @@ function page() {
           <input
             type="text"
             placeholder="제목을 입력해주세요."
+            autoComplete="off"
             aria-invalid={
               isSubmitted ? (errors.title ? "true" : "false") : undefined
             }
@@ -192,6 +257,7 @@ function page() {
           <input
             type="text"
             placeholder="상호를 입력해주세요."
+            autoComplete="off"
             aria-invalid={
               isSubmitted ? (errors.shopName ? "true" : "false") : undefined
             }
@@ -233,6 +299,7 @@ function page() {
           <input
             type="text"
             placeholder="URL을 입력해주세요."
+            autoComplete="off"
             aria-invalid={
               isSubmitted ? (errors.url ? "true" : "false") : undefined
             }
@@ -254,6 +321,7 @@ function page() {
             <input
               type="number"
               placeholder="숫자만 입력해주세요."
+              autoComplete="off"
               aria-invalid={
                 isSubmitted ? (errors.price ? "true" : "false") : undefined
               }
@@ -277,6 +345,7 @@ function page() {
             <input
               type="number"
               placeholder="숫자만 입력해주세요."
+              autoComplete="off"
               aria-invalid={
                 isSubmitted ? (errors.sales ? "true" : "false") : undefined
               }
@@ -300,6 +369,7 @@ function page() {
             <input
               type="number"
               placeholder="숫자만 입력해주세요."
+              autoComplete="off"
               aria-invalid={
                 isSubmitted ? (errors.revenue ? "true" : "false") : undefined
               }
@@ -325,6 +395,7 @@ function page() {
           <input
             type="text"
             placeholder="판매자 성함을 입력해주세요."
+            autoComplete="off"
             aria-invalid={
               isSubmitted ? (errors.name ? "true" : "false") : undefined
             }
@@ -345,6 +416,7 @@ function page() {
           <input
             type="number"
             placeholder="- 제외하고 숫자만 입력해주세요."
+            autoComplete="off"
             aria-invalid={
               isSubmitted ? (errors.phone ? "true" : "false") : undefined
             }
@@ -373,6 +445,7 @@ function page() {
           <input
             type="text"
             placeholder="올바른 이메일을 입력해주세요."
+            autoComplete="off"
             aria-invalid={
               isSubmitted ? (errors.email ? "true" : "false") : undefined
             }

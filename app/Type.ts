@@ -38,3 +38,23 @@ export type CommentType = {
   comment: string;
   date: Date;
 };
+
+export type TransactionType = {
+  _id: ObjectId;
+  userName: string;
+  userId: string;
+  image: string[];
+  defaultImage: File[];
+  logo: string;
+  defaultLogo: File;
+  title: string;
+  shopName: string;
+  url: string;
+  price: number;
+  sales: number;
+  revenue: number;
+  name: string;
+  phone: string;
+  email: string;
+  date: Date;
+};

@@ -1,6 +1,4 @@
-import { getServerSession } from "next-auth";
 import SubNav from "../components/SubNav";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function Layout({
   children,

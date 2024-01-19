@@ -8,7 +8,10 @@ function page() {
   return (
     <div className="transaction-inner">
       <div className="transaction-biz">
-        <div className="buy biz-box">
+        <div
+          className="buy biz-box"
+          onClick={() => router.push("/transaction/buy")}
+        >
           <p>사업자 구매하기</p>
         </div>
         <div

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { LuPlus } from "react-icons/lu";
+import { LuPlus, LuRefreshCcw } from "react-icons/lu";
 
 function page() {
   const [image, setImage] = useState<string[]>([]);
@@ -51,6 +51,19 @@ function page() {
       let fileName = encodeURIComponent(file.name);
       imageFileName.push(fileName);
     }
+  };
+
+  // RefreshImage
+  const handlerImageReset = () => {
+    setImage([]);
+    setImageFileName([]);
+    setPreviewImage([]);
+
+    window.location.reload();
+
+    setTimeout(() => {
+      router.refresh();
+    }, 100);
   };
 
   // LogoImage
@@ -208,7 +221,12 @@ function page() {
       <form onSubmit={handleSubmit(handlerSell)}>
         {/* 이미지 저장 */}
         <div className="add-image sell-box">
-          <label>이미지</label>
+          <label>
+            이미지 {"("}1MB이하의 파일만 올려주세요.{")"}
+            <span onClick={handlerImageReset}>
+              <LuRefreshCcw />
+            </span>
+          </label>
           <input
             type="file"
             accept="image/*"
@@ -269,7 +287,9 @@ function page() {
 
         {/* 로고 */}
         <div className="logo-box sell-box">
-          <label>로고 등록</label>
+          <label>
+            로고 등록 {"("}1MB이하의 파일만 올려주세요.{")"}
+          </label>
           <input
             type="file"
             accept="image/*"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { MutableRefObject, useRef, useState } from "react";
+import React, { MutableRefObject } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";

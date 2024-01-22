@@ -1,8 +1,8 @@
 "use client";
 
 import { TransactionType } from "@/app/Type";
+import Bg from "@/app/components/transaction/buy/Bg";
 import TransactionOption from "@/app/components/transaction/buy/TransactionOption";
-import Bg from "@/app/components/transaction/buy/bg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { KeyboardEvent, useEffect, useState } from "react";
@@ -89,7 +89,15 @@ function buy() {
             <>
               {transactionList.slice(0, postShowNum).map((post, idx) => {
                 return (
-                  <li key={idx}>
+                  <li
+                    key={idx}
+                    onClick={() => {
+                      router.prefetch(`/transaction/buy/${post._id}`);
+                      setTimeout(() => {
+                        router.push(`/transaction/buy/${post._id}`);
+                      }, 100);
+                    }}
+                  >
                     <div className="transaction-list-logo">
                       {post.logo ===
                       "https://s3.ap-northeast-2.amazonaws.com/nextshopimage/logo/" ? (

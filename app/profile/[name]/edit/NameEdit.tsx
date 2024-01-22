@@ -51,6 +51,8 @@ function NameEdit({ setEditBtn, setEditNameBtn, userName }: editBtnType) {
           if (session.status === "authenticated") {
             session.update({ nickName: data.name });
             alert(res.data);
+            document.querySelector("body")?.classList.remove("active");
+
             router.push("/mypage");
             setTimeout(() => {
               router.refresh();
@@ -71,6 +73,7 @@ function NameEdit({ setEditBtn, setEditNameBtn, userName }: editBtnType) {
           onClick={() => {
             setEditBtn(false);
             setEditNameBtn(false);
+            document.querySelector("body")?.classList.remove("active");
           }}
         />
       </div>

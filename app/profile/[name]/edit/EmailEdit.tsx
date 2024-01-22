@@ -52,6 +52,8 @@ function EmailEdit({ setEditBtn, setEditEmailBtn, userEmail }: editBtnType) {
           if (session.status === "authenticated") {
             session.update({ email: data.email });
             alert(res.data);
+            document.querySelector("body")?.classList.remove("active");
+
             window.location.reload();
           }
         })
@@ -69,6 +71,7 @@ function EmailEdit({ setEditBtn, setEditEmailBtn, userEmail }: editBtnType) {
           onClick={() => {
             setEditBtn(false);
             setEditEmailBtn(false);
+            document.querySelector("body")?.classList.remove("active");
           }}
         />
       </div>

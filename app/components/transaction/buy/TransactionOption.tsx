@@ -38,7 +38,7 @@ function TransactionOption({
   }, []);
 
   const handlerFilter = async (data: any) => {
-    await new Promise((r) => setTimeout(r, 1000));
+    await new Promise((r) => setTimeout(r, 100));
 
     axios
       .post("/api/transaction/filter", data)
@@ -52,6 +52,22 @@ function TransactionOption({
         }, 100);
       })
       .catch((err) => console.log(err));
+  };
+
+  const handlerReset = () => {
+    setTransactionOption(false);
+    document.querySelector("body")?.classList.remove("active");
+
+    axios
+      .post("/api/transaction/list")
+      .then((res) => {
+        setTransactionList(res.data);
+      })
+      .catch((err) => console.log(err));
+
+    setTimeout(() => {
+      router.refresh();
+    }, 100);
   };
 
   return (
@@ -126,7 +142,7 @@ function TransactionOption({
           </li>
         </ul>
         <div className="transaction-footer">
-          <span>초기화</span>
+          <span onClick={handlerReset}>초기화</span>
           <button type="submit" disabled={isSubmitting}>
             적용하기
           </button>

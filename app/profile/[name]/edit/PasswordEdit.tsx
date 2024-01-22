@@ -27,32 +27,6 @@ function PasswordEdit({ setEditBtn, setEditPasswordBtn, userId }: editBtnType) {
     };
   }, []);
 
-  //   const {
-  //     register,
-  //     handleSubmit,
-  //     formState: { isSubmitting, isSubmitted, errors },
-  //   } = useForm();
-
-  //   const handlerEditId = async (data: any) => {
-  //     await new Promise((r) => setTimeout(r, 1000));
-
-  //     let bodyData = {
-  //       changeEmail: data.email,
-  //     };
-
-  // if (window.confirm("이메일을 변경하시겠습니까?")) {
-  //   axios
-  //     .post("/api/profile/edit/editEmail", bodyData)
-  //     .then((res) => {
-  //       alert(res.data);
-  //       window.location.reload();
-  //     })
-  //     .catch((err) => console.log(err));
-  // } else {
-  //   return;
-  // }
-  //   };
-
   return (
     <div className={`edit-password ${show}`}>
       <div className="edit-header">
@@ -61,6 +35,7 @@ function PasswordEdit({ setEditBtn, setEditPasswordBtn, userId }: editBtnType) {
           onClick={() => {
             setEditBtn(false);
             setEditPasswordBtn(false);
+            document.querySelector("body")?.classList.remove("active");
           }}
         />
       </div>
@@ -176,6 +151,8 @@ function PasswordNew({ userId }: PasswordChangeType) {
       .post("/api/profile/edit/passwordChange", bodyData)
       .then((res) => {
         alert(res.data);
+        document.querySelector("body")?.classList.remove("active");
+
         window.location.reload();
       })
       .catch((err) => console.log(err));

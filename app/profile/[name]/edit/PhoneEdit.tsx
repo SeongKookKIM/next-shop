@@ -49,6 +49,8 @@ function PhoneEdit({ setEditBtn, setEditPhoneBtn, userPhone }: editBtnType) {
           if (session.status === "authenticated") {
             session.update({ phone: data.phone });
             alert(res.data);
+            document.querySelector("body")?.classList.remove("active");
+
             window.location.reload();
           }
         })
@@ -65,6 +67,7 @@ function PhoneEdit({ setEditBtn, setEditPhoneBtn, userPhone }: editBtnType) {
           onClick={() => {
             setEditBtn(false);
             setEditPhoneBtn(false);
+            document.querySelector("body")?.classList.remove("active");
           }}
         />
       </div>

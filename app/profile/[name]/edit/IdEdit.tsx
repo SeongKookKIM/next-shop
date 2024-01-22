@@ -52,6 +52,8 @@ function IdEdit({ setEditBtn, setEditIdBtn, userId }: editBtnType) {
           if (session.status === "authenticated") {
             session.update({ id: data.id });
             alert(res.data);
+            document.querySelector("body")?.classList.remove("active");
+
             window.location.reload();
           }
         })
@@ -69,6 +71,7 @@ function IdEdit({ setEditBtn, setEditIdBtn, userId }: editBtnType) {
           onClick={() => {
             setEditBtn(false);
             setEditIdBtn(false);
+            document.querySelector("body")?.classList.remove("active");
           }}
         />
       </div>

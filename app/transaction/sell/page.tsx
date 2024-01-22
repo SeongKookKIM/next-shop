@@ -1,12 +1,14 @@
 "use client";
 
-import Image from "@/app/components/transaction/sell/Image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { LuPlus, LuRefreshCcw } from "react-icons/lu";
+
+import Image from "@/app/components/transaction/sell/Image";
+import Content from "@/app/components/transaction/sell/Content";
 
 function page() {
   const [image, setImage] = useState<string[]>([]);
@@ -19,6 +21,8 @@ function page() {
 
   const imageRef = useRef<HTMLInputElement | null>(null);
   const logoRef = useRef<HTMLInputElement | null>(null);
+
+  const contentRef = useRef<any>(null);
 
   let router = useRouter();
 
@@ -97,6 +101,10 @@ function page() {
   // Submit
   const handlerSell = async (data: any) => {
     await new Promise((r) => setTimeout(r, 1000));
+
+    const contentIns = contentRef?.current?.getInstance();
+
+    const contentMark = contentIns.getMarkdown();
 
     if (window.confirm("판매 등록하시겠습니까?")) {
       const handlerAwsImage = async () => {
@@ -192,6 +200,7 @@ function page() {
           price: parseInt(data.price),
           sales: parseInt(data.sales),
           revenue: parseInt(data.revenue),
+          content: contentMark,
           name: data.name,
           phone: data.phone,
           email: data.email,
@@ -401,6 +410,12 @@ function page() {
           </div>
         </div>
 
+        {/* 상세내용 */}
+        <div className="sell-box">
+          <label>상세내용</label>
+          <Content contentRef={contentRef} content="" />
+        </div>
+
         {/* 판매자 정보 */}
         <strong>판매자 정보</strong>
 
@@ -479,7 +494,11 @@ function page() {
           />
         </div>
 
-        <button type="submit" disabled={isSubmitting}>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="transaction-sell-btn"
+        >
           판매등록
         </button>
       </form>

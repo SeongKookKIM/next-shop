@@ -2093,8 +2093,16 @@ body.active {
             color: #222;
           }
         }
+        .ProseMirror.toastui-editor-contents {
+          p {
+            font-size: 15px;
+          }
+        }
+        .toastui-editor-popup {
+          margin: 0;
+        }
       }
-      button {
+      button.transaction-sell-btn {
         width: 100%;
         font-size: 14px;
         font-family: $font;

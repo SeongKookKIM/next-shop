@@ -53,6 +53,7 @@ export type TransactionType = {
   price: number;
   sales: number;
   revenue: number;
+  content: string;
   name: string;
   phone: string;
   email: string;

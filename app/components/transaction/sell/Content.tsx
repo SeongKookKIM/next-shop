@@ -14,7 +14,7 @@ function Content({ contentRef, content }: EditorPropsType) {
         ref={contentRef}
         initialEditType="wysiwyg"
         hideModeSwitch={true}
-        placeholder="상세내용을 입력해주세요."
+        placeholder=" "
         initialValue={content ? content : " "}
         toolbarItems={[
           ["heading", "bold", "italic", "strike"],

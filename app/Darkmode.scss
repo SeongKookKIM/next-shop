@@ -367,4 +367,152 @@ body.dark-mode {
       }
     }
   }
+
+  .transaction-page {
+    strong {
+      color: white;
+    }
+
+    form {
+      input {
+        background-color: transparent;
+        color: white;
+      }
+
+      .sell-box {
+        .number-box {
+          span {
+            color: white;
+          }
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        strong,
+        em {
+          color: white;
+        }
+        .toastui-editor-defaultUI-toolbar,
+        .toastui-editor-contents,
+        .toastui-editor-dropdown-toolbar {
+          background-color: #222;
+          button {
+            background-color: #222;
+            border: none;
+            outline: none;
+            color: white;
+          }
+        }
+      }
+      .toastui-editor-popup {
+        background-color: #222;
+        color: white;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: white;
+        }
+        div {
+          color: white;
+        }
+        li {
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+      button.transaction-sell-btn {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #222;
+        font-weight: 500;
+      }
+    }
+
+    .buy {
+      .transaction-search-box {
+        input {
+          background-color: rgba(255, 255, 255, 0.85);
+        }
+        span {
+          background-color: #f1f3f5;
+          color: #222;
+        }
+      }
+      .transaction-list {
+        ul {
+          li {
+            background-color: rgba(255, 255, 255, 0.85);
+          }
+        }
+      }
+      .transaction-list-more {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #222;
+        font-weight: 500;
+      }
+      .transaction-header {
+        strong {
+          color: black;
+        }
+      }
+    }
+    .load {
+      color: white;
+    }
+    .transaction-detail {
+      .transaction-detail-slide {
+        background-color: rgba(255, 255, 255, 0.85);
+      }
+      .transaction-post-header {
+        border-bottom: 10px solid rgba(255, 255, 255, 0.85);
+
+        .price-info-box {
+          background-color: rgba(255, 255, 255, 0.85);
+        }
+      }
+      .transaction-post-body,
+      .transaction-post-footer {
+        h6 {
+          color: white;
+        }
+        p {
+          color: white;
+        }
+      }
+      .transaction-post-body,
+      .transaction-post-content {
+        border-bottom: 10px solid rgba(255, 255, 255, 0.85);
+      }
+
+      .transaction-post-content {
+        .transaction-post-content-wrapper {
+          &::after {
+            background: linear-gradient(
+              0deg,
+              rgba(34, 34, 34, 1) 0%,
+              rgba(34, 34, 34, 0) 90%
+            );
+          }
+          .toastui-editor-contents {
+            color: white;
+            em {
+              color: white;
+            }
+          }
+        }
+      }
+      .more-see-btn {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #222;
+        font-weight: 500;
+      }
+    }
+  }
 }

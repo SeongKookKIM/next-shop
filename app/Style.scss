@@ -2447,7 +2447,7 @@ body.active {
         color: $colorPuple;
         font-weight: 600;
         letter-spacing: -1px;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
       }
       .price-info-box {
         width: 100%;
@@ -2547,6 +2547,7 @@ body.active {
           );
         }
         .toastui-editor-contents {
+          font-size: 14px;
           p {
             font-size: 14px;
           }

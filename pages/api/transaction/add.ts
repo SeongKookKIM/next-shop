@@ -17,6 +17,8 @@ export default async function handler(
     req.body.userName = user.name || user.nickName || "";
     req.body.userId = user.id || "";
 
+    req.body.date = new Date();
+
     await db.collection("transaction").insertOne(req.body);
 
     return res.status(200).send("판매 등록하였습니다.");

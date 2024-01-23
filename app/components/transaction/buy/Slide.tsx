@@ -6,11 +6,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
-function Slide() {
+interface PostDetailPropsType {
+  postImage: string[] | undefined;
+}
+
+function Slide({ postImage }: PostDetailPropsType) {
   return (
     <div>
       <Swiper
@@ -18,18 +21,24 @@ function Slide() {
           type: "fraction",
         }}
         navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
+        modules={[Pagination]}
+        className="transaction-detail-slide"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {postImage && postImage.length > 0 ? (
+          <>
+            {postImage.map((post, idx) => {
+              return (
+                <SwiperSlide key={idx}>
+                  <img src={post} />
+                </SwiperSlide>
+              );
+            })}
+          </>
+        ) : (
+          <SwiperSlide>
+            <p>이미지가 존재하지 않습니다.</p>
+          </SwiperSlide>
+        )}
       </Swiper>
     </div>
   );

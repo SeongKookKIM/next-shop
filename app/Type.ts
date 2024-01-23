@@ -57,5 +57,5 @@ export type TransactionType = {
   name: string;
   phone: string;
   email: string;
-  date: Date;
+  date: Date | undefined;
 };

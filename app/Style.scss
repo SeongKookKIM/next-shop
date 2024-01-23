@@ -2393,4 +2393,231 @@ body.active {
       }
     }
   }
+
+  // Transaction-detail
+  .load {
+    width: 100%;
+    height: 60vh;
+    @include flexCenter();
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .transaction-detail {
+    width: 100%;
+    .transaction-detail-slide {
+      width: 100%;
+      height: 300px;
+      background-color: #f1f3f5;
+      .swiper-slide {
+        @include flexCenter();
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .swiper-pagination {
+        width: auto;
+        padding: 3px 5px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+        @include flexCenter();
+        border-radius: 5px;
+        gap: 5px;
+        span {
+          font-family: $font;
+          font-size: 13px;
+          color: white;
+        }
+      }
+    }
+    .transaction-post-header {
+      width: 100%;
+      padding: 20px 5%;
+      border-bottom: 10px solid #f1f3f5;
+      strong.title {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 7px;
+      }
+      p.price {
+        font-size: 18px;
+        color: $colorPuple;
+        font-weight: 600;
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+      }
+      .price-info-box {
+        width: 100%;
+        background-color: #f1f3f8;
+        border-radius: 10px;
+        overflow: hidden;
+        ul {
+          width: 100%;
+          display: flex;
+          padding: 10px 0px;
+          li {
+            width: 50%;
+            padding: 0px 20px;
+            &:first-child {
+              border-right: 1px solid #868e96;
+            }
+            p {
+              font-size: 13px;
+              color: #222;
+              font-weight: 500;
+            }
+            span {
+              font-size: 16px;
+              color: black;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+    .transaction-post-body {
+      width: 100%;
+      padding: 0 5% 20px;
+      border-bottom: 10px solid #f1f3f5;
+      strong {
+        display: block;
+        font-size: 18px;
+        margin: 20px 0;
+      }
+      .shop-logo,
+      .shop-name,
+      .shop-url {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #f1f3f5;
+        padding: 10px 0;
+        h6 {
+          font-size: 15px;
+          width: 100px;
+        }
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+        }
+        p {
+          font-size: 15px;
+          font-weight: 500;
+          color: #222;
+        }
+      }
+      .shop-url {
+        border-bottom: none;
+        p {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+    .transaction-post-content {
+      width: 100%;
+      padding: 0 5% 20px;
+      border-bottom: 10px solid #f1f3f5;
+      strong {
+        display: block;
+        font-size: 18px;
+        margin: 20px 0;
+      }
+      .transaction-post-content-wrapper {
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+        transition: height 0.5s;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100px;
+          background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0) 90%
+          );
+        }
+        .toastui-editor-contents {
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+      .transaction-post-content-wrapper.show {
+        height: auto;
+        min-height: 200px;
+        transition: height 0.5s;
+        &:after {
+          height: 0;
+        }
+      }
+      .more-see-btn {
+        width: 100%;
+        font-size: 14px;
+        font-family: "Noto Sans KR", sans-serif;
+        font-weight: 500;
+        color: #222;
+        background-color: #f1f3f8;
+        border: none;
+        outline: none;
+        padding: 14px 0;
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+    }
+    .transaction-post-footer {
+      width: 100%;
+      padding: 0 5% 20px;
+      strong {
+        display: block;
+        font-size: 18px;
+        margin: 20px 0;
+      }
+      .shop-user-name,
+      .shop-user-phone,
+      .shop-user-email {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #f1f3f5;
+        padding: 10px 0;
+        h6 {
+          font-size: 15px;
+          width: 100px;
+        }
+        p {
+          width: 100%;
+          font-size: 15px;
+          font-weight: 500;
+          color: #222;
+          position: relative;
+          display: flex;
+          align-items: center;
+          span {
+            display: block;
+            position: absolute;
+            right: 0;
+            font-size: 11px;
+            background-color: $colorBlue;
+            color: white;
+            font-weight: 500;
+            padding: 3px 7px;
+            border-radius: 5px;
+          }
+        }
+      }
+      .shop-user-email {
+        border-bottom: none;
+      }
+    }
+  }
 }

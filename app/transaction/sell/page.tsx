@@ -204,7 +204,7 @@ function page() {
           name: data.name,
           phone: data.phone,
           email: data.email,
-          date: new Date(),
+          date: null,
         };
 
         await axios

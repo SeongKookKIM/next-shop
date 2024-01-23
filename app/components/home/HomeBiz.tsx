@@ -1,3 +1,5 @@
+"use client";
+import { useRouter } from "next/navigation";
 import { FcSynchronize, FcAreaChart } from "react-icons/fc";
 
 interface BizPropsType {
@@ -8,8 +10,27 @@ interface BizPropsType {
 }
 
 function HomeBiz({ name, title, fdescription, sdescription }: BizPropsType) {
+  let router = useRouter();
+
+  const handlerHref = (title: string) => {
+    switch (title) {
+      case "사업자 거래":
+        router.push("/transaction");
+        return;
+
+      case "사업 투자":
+        router.push("/");
+        return;
+    }
+  };
+
   return (
-    <div className={`${name} biz`}>
+    <div
+      className={`${name} biz`}
+      onClick={() => {
+        handlerHref(title);
+      }}
+    >
       <p>{title}</p>
       <span>{fdescription}</span>
       <span>{sdescription}</span>

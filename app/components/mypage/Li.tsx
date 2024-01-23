@@ -24,7 +24,7 @@ function Li({ title, session }: PropsType) {
 
     switch (title) {
       case "내 사업 판매하기":
-        router.push("/");
+        router.push("/transaction/sell");
         break;
       case "내 사업 매물":
         router.push("/");

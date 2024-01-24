@@ -10,13 +10,18 @@ function page() {
       <div className="transaction-biz">
         <div
           className="buy biz-box"
-          onClick={() => router.push("/transaction/buy")}
+          onClick={() => router.push("/transaction/buy", { scroll: true })}
         >
           <p>사업자 구매하기</p>
         </div>
         <div
           className="sell biz-box"
-          onClick={() => router.push("/transaction/sell")}
+          onClick={() => {
+            router.push("/transaction/sell", { scroll: false });
+            setTimeout(() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }, 100);
+          }}
         >
           <p>사업자 판매하기</p>
         </div>

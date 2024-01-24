@@ -436,6 +436,11 @@ body.dark-mode {
     }
 
     .buy {
+      .transaction-option-box {
+        input {
+          color: #222;
+        }
+      }
       .transaction-search-box {
         input {
           background-color: rgba(255, 255, 255, 0.85);

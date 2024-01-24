@@ -15,11 +15,11 @@ function HomeBiz({ name, title, fdescription, sdescription }: BizPropsType) {
   const handlerHref = (title: string) => {
     switch (title) {
       case "사업자 거래":
-        router.push("/transaction");
+        router.push("/transaction", { scroll: true });
         return;
 
       case "사업 투자":
-        router.push("/");
+        router.push("/", { scroll: true });
         return;
     }
   };

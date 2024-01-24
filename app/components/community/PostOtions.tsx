@@ -88,7 +88,19 @@ function PostOtions({
             </span>
           </li>
           <li>
-            <span>신고하기</span>
+            <span
+              onClick={() => {
+                alert(
+                  "신고가 접수되었습니다. 확인 후 빠른 조치하도록 하겠습니다."
+                );
+                setTimeout(() => {
+                  setClickBtn(false);
+                  document.querySelector("body")?.classList.remove("active");
+                }, 100);
+              }}
+            >
+              신고하기
+            </span>
           </li>
         </ul>
         <button

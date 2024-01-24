@@ -8,10 +8,13 @@ import HomeCommunity from "./components/home/HomeCommunity";
 import { useEffect, useMemo, useState } from "react";
 import { SWRConfig } from "swr";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [scrollPos, setScrollPos] = useState<number>(0);
   const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
+
+  let router = useRouter();
 
   useEffect(() => {
     function handleScroll() {
@@ -70,7 +73,12 @@ export default function Home() {
             <span>한땀한땀 키운 내사업, </span>
             <span>간편하게 양도해 보세요.</span>
           </div>
-          <div className="transaction-btn">
+          <div
+            className="transaction-btn"
+            onClick={() => {
+              router.push("/transaction");
+            }}
+          >
             <p>사업 직거래하기</p>
           </div>
         </div>

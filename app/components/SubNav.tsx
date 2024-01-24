@@ -65,6 +65,9 @@ function SubNav({ title }: PropsType) {
       case "사업자 거래":
         router.back();
         break;
+      case "내가 쓴 글":
+        router.back();
+        break;
     }
   };
 

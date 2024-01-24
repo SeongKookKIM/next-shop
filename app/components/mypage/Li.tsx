@@ -30,7 +30,7 @@ function Li({ title, session }: PropsType) {
         router.push("/");
         break;
       case "내가 쓴 글":
-        router.push("/");
+        router.push("/myWrite");
         break;
       case "회원정보 수정":
         router.push(`/profile/${userName}?name=${userName}`);

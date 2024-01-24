@@ -68,6 +68,9 @@ function SubNav({ title }: PropsType) {
       case "내가 쓴 글":
         router.back();
         break;
+      case "내 사업 매물":
+        router.back();
+        break;
     }
   };
 

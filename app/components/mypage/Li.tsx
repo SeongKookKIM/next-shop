@@ -27,7 +27,7 @@ function Li({ title, session }: PropsType) {
         router.push("/transaction/sell");
         break;
       case "내 사업 매물":
-        router.push("/");
+        router.push("/myPost");
         break;
       case "내가 쓴 글":
         router.push("/myWrite");

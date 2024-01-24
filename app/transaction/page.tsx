@@ -17,10 +17,11 @@ function page() {
         <div
           className="sell biz-box"
           onClick={() => {
-            router.push("/transaction/sell", { scroll: false });
+            router.prefetch("/transaction/sell");
+            router.push("/transaction/sell");
             setTimeout(() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
-            }, 100);
+            }, 300);
           }}
         >
           <p>사업자 판매하기</p>

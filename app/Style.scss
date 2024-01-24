@@ -2816,4 +2816,109 @@ body.active {
       cursor: pointer;
     }
   }
+
+  // PostEditPage
+  .sell {
+    width: 90%;
+    margin: 0 auto;
+    strong {
+      display: block;
+      width: 100%;
+      font-size: 16px;
+      color: #222;
+      margin: 20px 0;
+    }
+    form {
+      width: 100%;
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #868e96;
+        margin-bottom: 10px;
+        .alert {
+          margin-top: 4px;
+          font-size: 11px;
+          color: red;
+          font-weight: 500;
+        }
+      }
+      .add-image {
+        label {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 5px;
+          span {
+            svg {
+              display: block;
+              width: 20px;
+              height: 20px;
+              stroke: #868e96;
+            }
+          }
+        }
+      }
+
+      .sell-box {
+        width: 100%;
+        margin-bottom: 20px;
+        input {
+          width: 100%;
+          border: none;
+          outline: none;
+          border-bottom: 2px solid #f1f3f5;
+          font-size: 16px;
+          font-family: $font;
+          font-weight: 600;
+          padding: 10px 0;
+          &::placeholder {
+            font-family: $font;
+            font-weight: 16px;
+            font-weight: 600;
+          }
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        .number-box {
+          width: 100%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          span {
+            position: absolute;
+            right: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+          }
+        }
+        .ProseMirror.toastui-editor-contents {
+          p {
+            font-size: 15px;
+          }
+        }
+        .toastui-editor-popup {
+          margin: 0;
+        }
+      }
+      button.transaction-sell-btn {
+        width: 100%;
+        font-size: 14px;
+        font-family: $font;
+        font-weight: 500;
+        color: white;
+        background-color: #212529;
+        border: none;
+        outline: none;
+        padding: 14px 0;
+        border-radius: 10px;
+        margin: 20px 0;
+      }
+    }
+  }
 }

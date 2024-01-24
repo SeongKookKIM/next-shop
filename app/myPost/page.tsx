@@ -21,6 +21,19 @@ function page() {
       .catch((err) => console.log(err));
   }, []);
 
+  const handlerPostEdit = (id: ObjectId) => {
+    if (window.confirm("게시물을 수정하시겠습니까?")) {
+      router.prefetch(`/mypPost/${id}`);
+      router.push(`/myPost/${id}`);
+
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 300);
+    } else {
+      return;
+    }
+  };
+
   const handlerPostDelete = (id: ObjectId) => {
     if (window.confirm("게시물을 삭제하시겠습니까?")) {
       axios
@@ -81,7 +94,13 @@ function page() {
                       </div>
                     </li>
                     <div className="btn-box">
-                      <span>수정하기</span>
+                      <span
+                        onClick={() => {
+                          handlerPostEdit(post._id);
+                        }}
+                      >
+                        수정하기
+                      </span>
                       <span
                         onClick={() => {
                           handlerPostDelete(post._id);

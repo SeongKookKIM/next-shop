@@ -19,7 +19,7 @@ export default async function handler(
     Bucket: process.env.AWS_BUCKET_NAME,
     Fields: { key: folderName + req.query.file },
     Expires: 60,
-    Conditions: [["content-length-range", 0, 1048576]],
+    Conditions: [["content-length-range", 0, 10485760]],
   });
 
   res.status(200).json(url);

@@ -231,7 +231,7 @@ function page() {
         {/* 이미지 저장 */}
         <div className="add-image sell-box">
           <label>
-            이미지 {"("}1MB이하의 파일만 올려주세요.{")"}
+            이미지 {"("}10MB이하의 파일만 올려주세요.{")"}
             <span onClick={handlerImageReset}>
               <LuRefreshCcw />
             </span>
@@ -297,7 +297,7 @@ function page() {
         {/* 로고 */}
         <div className="logo-box sell-box">
           <label>
-            로고 등록 {"("}1MB이하의 파일만 올려주세요.{")"}
+            로고 등록 {"("}10MB이하의 파일만 올려주세요.{")"}
           </label>
           <input
             type="file"

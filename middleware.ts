@@ -15,4 +15,33 @@ export default async function middleware(request: any) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
+  if (request.nextUrl.pathname === "/communityWrite") {
+    if (session === null) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
+  if (request.nextUrl.pathname === "/transaction/sell") {
+    if (session === null) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
+
+  const buyRegex = /^\/transaction\/buy\/[a-zA-Z0-9-_]+$/;
+
+  if (buyRegex.test(request.nextUrl.pathname)) {
+    if (session === null) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
+
+  if (request.nextUrl.pathname === "/myWrite") {
+    if (session === null) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
+  if (request.nextUrl.pathname === "/myPost") {
+    if (session === null) {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
 }

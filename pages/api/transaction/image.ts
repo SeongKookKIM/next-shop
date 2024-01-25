@@ -22,7 +22,7 @@ export default async function handler(
       Bucket: process.env.AWS_BUCKET_NAME,
       Fields: { key: folderName + req.body.image[i] },
       Expires: 60,
-      Conditions: [["content-length-range", 0, 1048576]],
+      Conditions: [["content-length-range", 0, 10485760]],
     });
     urlArray.push(url);
   }

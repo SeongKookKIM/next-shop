@@ -90,7 +90,9 @@ body.dark-mode {
   .notice-page,
   .community-page,
   .community-write-page,
-  .transaction-page {
+  .transaction-page,
+  .my-write-page,
+  .my-post-page {
     .m-sub-nav {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background-color: #222;
@@ -282,7 +284,8 @@ body.dark-mode {
             h6,
             p,
             strong,
-            em {
+            em,
+            del {
               color: white;
             }
           }
@@ -325,7 +328,8 @@ body.dark-mode {
         h6,
         p,
         strong,
-        em {
+        em,
+        del {
           color: white;
         }
         .toastui-editor-defaultUI-toolbar,
@@ -393,7 +397,8 @@ body.dark-mode {
         h6,
         p,
         strong,
-        em {
+        em,
+        del {
           color: white;
         }
         .toastui-editor-defaultUI-toolbar,
@@ -518,6 +523,42 @@ body.dark-mode {
         color: #222;
         font-weight: 500;
       }
+    }
+  }
+  .my-write-page {
+    .community-inner {
+      strong {
+        color: white;
+      }
+      .community-list-info {
+        span {
+          color: white;
+        }
+        .comment {
+          span {
+            color: white;
+          }
+        }
+      }
+      .community-list {
+        li {
+          border-bottom: 1px solid #f1f3f5;
+        }
+      }
+    }
+  }
+  .my-post-page {
+    .transaction-list {
+      ul {
+        li {
+          background-color: rgba(255, 255, 255, 0.85);
+        }
+      }
+    }
+    .transaction-list-more {
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #222;
+      font-weight: 500;
     }
   }
 }

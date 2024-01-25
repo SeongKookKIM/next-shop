@@ -33,23 +33,21 @@ function page() {
   };
 
   const hanlderCopy = async (copy: string) => {
-    if (typeof navigator !== "undefined" && navigator.clipboard) {
-      const textarea = document.createElement("textarea");
-      textarea.value = copy;
-      document.body.appendChild(textarea);
-      textarea.select();
+    const textarea = document.createElement("textarea");
+    textarea.value = copy;
+    document.body.appendChild(textarea);
+    textarea.select();
 
+    if (typeof window !== "undefined") {
       try {
         await navigator.clipboard.writeText(copy);
         alert("클립보드에 복사되었습니다.");
       } catch (e) {
         alert("복사에 실패하였습니다");
       }
-
-      document.body.removeChild(textarea);
-    } else {
-      alert("복사 기능을 지원하지 않는 환경입니다.");
     }
+
+    document.body.removeChild(textarea);
   };
 
   if (!postDetail) {

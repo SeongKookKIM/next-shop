@@ -4,7 +4,7 @@ import { TransactionType } from "@/app/Type";
 import Slide from "@/app/components/transaction/buy/Slide";
 import { Viewer } from "@toast-ui/react-editor";
 import axios from "axios";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type PostType = {
@@ -38,13 +38,11 @@ function page() {
     document.body.appendChild(textarea);
     textarea.select();
 
-    if (typeof window !== "undefined") {
-      try {
-        await navigator.clipboard.writeText(copy);
-        alert("클립보드에 복사되었습니다.");
-      } catch (e) {
-        alert("복사에 실패하였습니다");
-      }
+    try {
+      document.execCommand("copy");
+      alert("클립보드에 주소가 복사되었습니다.");
+    } catch (e) {
+      alert("주소복사에 실패하였습니다");
     }
 
     document.body.removeChild(textarea);

@@ -6,6 +6,12 @@ $font: "Noto Sans KR", sans-serif;
 $colorPuple: #6741d9;
 $colorBlue: #3b5bdb;
 
+@mixin mobile {
+  @media (min-width: 700px) {
+    @content;
+  }
+}
+
 :root {
   --vh: 100%;
 }
@@ -24,12 +30,12 @@ $colorBlue: #3b5bdb;
   }
   .m-sub-nav {
     width: 100%;
+    max-width: 700px;
     height: 56px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.01);
     position: fixed;
     background-color: white;
     top: 0;
-    left: 0;
     z-index: 100;
     transition: 0.5s;
     .m-sub-nav-inner {
@@ -109,6 +115,16 @@ li {
   color: black;
 }
 
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+}
+.m-nav,
+.footer-nav {
+  max-width: 700px;
+}
+
 // Body
 body.active {
   height: 100vh;
@@ -125,7 +141,6 @@ body.active {
   padding: 10px 0;
   position: fixed;
   bottom: 0;
-  left: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background-color: white;
   transition: 0.5s;
@@ -177,7 +192,6 @@ body.active {
     position: fixed;
     background-color: white;
     top: 0;
-    left: 0;
     z-index: 100;
     transition: 0.5s;
     .m-nav-inner {
@@ -1259,8 +1273,10 @@ body.active {
   width: 100%;
   @include suvNavStyle();
   padding-top: 100px;
+  position: relative;
   .commnuity-write-btn {
     width: 14%;
+    max-width: 60px;
     aspect-ratio: 1/1;
     background-color: $colorPuple;
     position: fixed;
@@ -1269,6 +1285,10 @@ body.active {
     @include flexCenter();
     border-radius: 50%;
     cursor: pointer;
+    @include mobile() {
+      right: calc(50% - 350px);
+      transform: translateX(-50%);
+    }
     svg {
       width: 50%;
       height: 50%;

@@ -2,10 +2,18 @@
 
 import { TransactionType } from "@/app/Type";
 import Slide from "@/app/components/transaction/buy/Slide";
-import { Viewer } from "@toast-ui/react-editor";
+
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+
+const Viewer = dynamic(
+  () => import("@toast-ui/react-editor").then((mod) => mod.Viewer),
+  {
+    ssr: false,
+  }
+);
 
 type PostType = {
   id: string;
@@ -105,7 +113,7 @@ function page() {
               : "transaction-post-content-wrapper"
           }
         >
-          <Viewer initialValue={postDetail.content} />
+          {Viewer && <Viewer initialValue={postDetail?.content} />}
         </div>
         <button
           type="button"

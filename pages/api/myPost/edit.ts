@@ -8,10 +8,7 @@ export default async function handler(
 ) {
   let db = (await connectDB).db("next-shop");
 
-  console.log(req.body);
   let findId = req.query._id;
-
-  console.log(findId);
 
   await db
     .collection("transaction")

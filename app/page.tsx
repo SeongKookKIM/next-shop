@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import DarkMode from "./DarkMode";
-import wavingHand from "../public/waving-hand.png";
 import HomeBiz from "./components/home/HomeBiz";
 import HomeCommunity from "./components/home/HomeCommunity";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { SWRConfig } from "swr";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -47,7 +46,12 @@ export default function Home() {
         <div className="home-title">
           <p>
             환영합니다
-            <Image src={wavingHand} width={20} alt="waving-hand" />
+            <Image
+              src="/waving-hand.png"
+              width={20}
+              height={20}
+              alt="waving-hand"
+            />
           </p>
           <p>이제부터는 "직거래"를 통한 </p>
           <p>사업 양도 및 새로운 사업을 찾아보세요!</p>

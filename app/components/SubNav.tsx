@@ -71,6 +71,9 @@ function SubNav({ title }: PropsType) {
       case "내 사업 매물":
         router.back();
         break;
+      case "사업 투자":
+        router.back();
+        break;
     }
   };
 

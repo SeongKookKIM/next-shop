@@ -51,7 +51,11 @@ export default function FooterNav() {
             <FcShop />
             <span>사업자 거래</span>
           </li>
-          <li>
+          <li
+            onClick={() => {
+              router.push("/invest");
+            }}
+          >
             <FcBarChart />
             <span>사업 투자</span>
           </li>

@@ -2922,3 +2922,33 @@ body.active {
     }
   }
 }
+// invest
+.invest-page {
+  width: 100%;
+  padding-top: 55px;
+  @include suvNavStyle();
+  .invest-page-inner {
+    width: 100%;
+    margin: 0 auto;
+    height: 60vh;
+    @include flexCenter();
+    flex-direction: column;
+    svg {
+      width: 100px;
+      height: 100px;
+    }
+    strong {
+      font-size: 25px;
+      margin-bottom: 20px;
+      span {
+        color: $colorBlue;
+      }
+    }
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #868e96;
+      margin-bottom: 5px;
+    }
+  }
+}

@@ -92,7 +92,8 @@ body.dark-mode {
   .community-write-page,
   .transaction-page,
   .my-write-page,
-  .my-post-page {
+  .my-post-page,
+  .invest-page {
     .m-sub-nav {
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background-color: #222;
@@ -559,6 +560,11 @@ body.dark-mode {
       background-color: rgba(255, 255, 255, 0.85);
       color: #222;
       font-weight: 500;
+    }
+  }
+  .invest-page {
+    strong {
+      color: white;
     }
   }
 }

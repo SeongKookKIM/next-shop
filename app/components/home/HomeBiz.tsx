@@ -19,7 +19,7 @@ function HomeBiz({ name, title, fdescription, sdescription }: BizPropsType) {
         return;
 
       case "사업 투자":
-        router.push("/", { scroll: true });
+        router.push("/invest", { scroll: true });
         return;
     }
   };

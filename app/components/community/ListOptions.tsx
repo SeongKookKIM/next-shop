@@ -2,7 +2,6 @@
 
 import { UserType } from "@/app/Type";
 import axios from "axios";
-import { Session } from "inspector";
 import { ObjectId } from "mongodb";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";

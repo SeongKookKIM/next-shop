@@ -32,7 +32,7 @@ function ProfileInfo({ session }: sessionType) {
 
   return (
     <div className="profile-info" onClick={handlerProfileDetail}>
-      <p>{session?.user?.name || session?.user?.nickName}</p>
+      <p>{user?.name || user?.nickName}</p>
       <span>{session?.user?.email}</span>
       <LuChevronRight className="profile-click" />
     </div>

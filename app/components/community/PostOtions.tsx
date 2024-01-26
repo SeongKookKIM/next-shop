@@ -85,9 +85,9 @@ function PostOtions({
             <span
               onClick={handlerDeletePost}
               className={
-                findUserName === session.data?.user?.name
+                findUserName === user?.name
                   ? "name"
-                  : findUserName === session.data?.user?.nickName
+                  : findUserName === user?.nickName
                   ? "nickName"
                   : "block"
               }

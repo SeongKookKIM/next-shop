@@ -1,6 +1,8 @@
 "use client";
 
+import { UserType } from "@/app/Type";
 import axios from "axios";
+import { Session } from "inspector";
 import { ObjectId } from "mongodb";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -14,6 +16,7 @@ interface CommentListType {
 
 function ListOptions({ setBgShow, commentId, commentName }: CommentListType) {
   const [show, setShow] = useState<string>("");
+  const [user, setuser] = useState<UserType>();
 
   let session = useSession();
 
@@ -29,6 +32,12 @@ function ListOptions({ setBgShow, commentId, commentName }: CommentListType) {
       setShow("");
     };
   }, []);
+
+  useEffect(() => {
+    if (session) {
+      setuser(session.data?.user as UserType);
+    }
+  }, [session]);
 
   const handlerDeleteComment = () => {
     if (window.confirm("댓글을 삭제하시겠습니까?")) {
@@ -57,9 +66,9 @@ function ListOptions({ setBgShow, commentId, commentName }: CommentListType) {
             <span
               onClick={handlerDeleteComment}
               className={
-                commentName === session.data?.user?.name
+                commentName === user?.name
                   ? "name"
-                  : commentName === session.data?.user?.nickName
+                  : commentName === user?.nickName
                   ? "nickName"
                   : "block"
               }

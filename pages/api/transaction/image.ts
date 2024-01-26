@@ -6,8 +6,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   aws.config.update({
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SECRET_KEY,
+    accessKeyId: process.env.AWS_ACCESS,
+    secretAccessKey: process.env.AWS_SECRET,
     region: "ap-northeast-2",
     signatureVersion: "v4",
   });

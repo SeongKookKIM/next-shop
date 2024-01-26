@@ -6,6 +6,7 @@ $colorBlue: #3b5bdb;
 body.dark-mode {
   transition: 0.5s;
   background-color: #222;
+  box-shadow: 0 3px 10px 0 rgb(255 255 255 / 30%);
   a,
   h1,
   h3,
@@ -276,19 +277,9 @@ body.dark-mode {
       .cm-detail-mid-inner {
         border-bottom: 10px solid rgba(255, 255, 255, 0.85);
         .cm-detail-content {
-          .toastui-editor-contents {
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            p,
-            strong,
-            em,
-            del {
-              color: white;
-            }
+          textarea {
+            background-color: transparent;
+            color: white;
           }
         }
       }
@@ -315,54 +306,14 @@ body.dark-mode {
         background-color: #222;
         color: white;
       }
-      .cm-title {
-        input {
-          border: none;
-        }
-      }
+
       .editor {
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        strong,
-        em,
-        del {
+        p {
           color: white;
         }
-        .toastui-editor-defaultUI-toolbar,
-        .toastui-editor-contents,
-        .toastui-editor-dropdown-toolbar {
-          background-color: #222;
-          button {
-            background-color: #222;
-            border: none;
-            outline: none;
-            color: white;
-          }
-        }
-      }
-      .toastui-editor-popup {
-        background-color: #222;
-        color: white;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        textarea {
+          background-color: transparent;
           color: white;
-        }
-        div {
-          color: white;
-        }
-        li {
-          &:hover {
-            background-color: transparent;
-          }
         }
       }
       button.cm-submit {
@@ -390,50 +341,11 @@ body.dark-mode {
             color: white;
           }
         }
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        strong,
-        em,
-        del {
-          color: white;
-        }
-        .toastui-editor-defaultUI-toolbar,
-        .toastui-editor-contents,
-        .toastui-editor-dropdown-toolbar {
-          background-color: #222;
-          button {
-            background-color: #222;
-            border: none;
-            outline: none;
-            color: white;
-          }
+        textarea {
+          background-color: transparent;
         }
       }
-      .toastui-editor-popup {
-        background-color: #222;
-        color: white;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          color: white;
-        }
-        div {
-          color: white;
-        }
-        li {
-          &:hover {
-            background-color: transparent;
-          }
-        }
-      }
+
       button.transaction-sell-btn {
         background-color: rgba(255, 255, 255, 0.85);
         color: #222;
@@ -511,11 +423,9 @@ body.dark-mode {
               rgba(34, 34, 34, 0) 90%
             );
           }
-          .toastui-editor-contents {
+          textarea {
+            background-color: transparent;
             color: white;
-            em {
-              color: white;
-            }
           }
         }
       }
@@ -565,6 +475,22 @@ body.dark-mode {
   .invest-page {
     strong {
       color: white;
+    }
+  }
+  .sell {
+    input {
+      background-color: transparent;
+      color: white;
+    }
+    textarea {
+      background-color: transparent;
+      color: white;
+    }
+    form {
+      button.transaction-sell-btn {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: #222;
+      }
     }
   }
 }

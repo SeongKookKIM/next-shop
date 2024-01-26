@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import DarkMode from "./DarkMode";
 import HomeBiz from "./components/home/HomeBiz";
 import HomeCommunity from "./components/home/HomeCommunity";
@@ -46,11 +45,9 @@ export default function Home() {
         <div className="home-title">
           <p>
             환영합니다
-            <Image
-              src="/waving-hand.png"
-              width={20}
-              height={20}
-              alt="waving-hand"
+            <img
+              src="https://nextshopimage.s3.ap-northeast-2.amazonaws.com/waving-hand.png"
+              style={{ width: "20px", height: "20px" }}
             />
           </p>
           <p>이제부터는 "직거래"를 통한 </p>

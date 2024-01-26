@@ -119,6 +119,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+  min-height: 100vh;
 }
 .m-nav,
 .footer-nav {
@@ -2162,7 +2163,7 @@ body.active {
           font-family: $font;
           font-weight: 600;
           font-size: 16px;
-          padding: 10px 0;
+          padding: 10px 0 10px 10px;
           &::-webkit-scrollbar {
             display: none;
           }
@@ -2180,14 +2181,6 @@ body.active {
             color: #222;
           }
         }
-        .ProseMirror.toastui-editor-contents {
-          p {
-            font-size: 15px;
-          }
-        }
-        .toastui-editor-popup {
-          margin: 0;
-        }
       }
       button.transaction-sell-btn {
         width: 100%;
@@ -2201,6 +2194,7 @@ body.active {
         padding: 14px 0;
         border-radius: 10px;
         margin: 20px 0;
+        cursor: pointer;
       }
     }
   }

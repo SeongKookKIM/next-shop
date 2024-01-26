@@ -135,6 +135,7 @@ function page() {
           )}
         </div>
         <div className="editor">
+          <p>상세 내용</p>
           <textarea
             typeof="text"
             placeholder="상세 내용을 입력해주세요."

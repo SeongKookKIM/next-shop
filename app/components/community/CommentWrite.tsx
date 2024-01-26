@@ -48,7 +48,9 @@ function CommentWrite({ postId, session }: FindPostType) {
     <div className="comment-write-wrapper">
       <div className="comment-write-inner">
         <div className="comment-user">
-          <strong>{session?.user?.name || session?.user?.nickName}</strong>
+          <strong>
+            {session?.user?.name || session?.user?.nickName || ""}
+          </strong>
         </div>
         <textarea
           typeof="text"

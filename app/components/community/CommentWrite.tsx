@@ -3,8 +3,16 @@
 import axios from "axios";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+type SessionType = {
+  id?: string | null | undefined;
+  name?: string | null | undefined;
+  email?: string | null | undefined;
+  image?: string | null | undefined;
+  nickName?: string | null | undefined;
+  phone?: string | null | undefined;
+};
 interface FindPostType {
   postId: string | undefined;
   session: Session | null;
@@ -12,6 +20,7 @@ interface FindPostType {
 
 function CommentWrite({ postId, session }: FindPostType) {
   const [comment, setComment] = useState<string>("");
+  const [user, setUser] = useState<SessionType>();
 
   let router = useRouter();
 
@@ -20,6 +29,12 @@ function CommentWrite({ postId, session }: FindPostType) {
     e.target.style.height = "auto";
     e.target.style.height = `${Math.min(e.target.scrollHeight, 104)}px`;
   };
+
+  useEffect(() => {
+    if (session) {
+      setUser(session.user);
+    }
+  }, []);
 
   const handlerCommentBtn = () => {
     let postData = {
@@ -48,9 +63,7 @@ function CommentWrite({ postId, session }: FindPostType) {
     <div className="comment-write-wrapper">
       <div className="comment-write-inner">
         <div className="comment-user">
-          <strong>
-            {session?.user?.name || session?.user?.nickName || ""}
-          </strong>
+          <strong>{user?.name || user?.nickName || ""}</strong>
         </div>
         <textarea
           typeof="text"

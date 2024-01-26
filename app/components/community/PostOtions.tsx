@@ -1,5 +1,6 @@
 "use client";
 
+import { UserType } from "@/app/Type";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -17,6 +18,7 @@ function PostOtions({
   findUserName,
 }: CommunityBgType) {
   const [show, setShow] = useState<string>("");
+  const [user, setuser] = useState<UserType>();
 
   let session = useSession();
 
@@ -32,6 +34,12 @@ function PostOtions({
       setShow("");
     };
   }, []);
+
+  useEffect(() => {
+    if (session) {
+      setuser(session.data?.user as UserType);
+    }
+  }, [session]);
 
   const handlerDeletePost = () => {
     if (window.confirm("게시물을 삭제하시겠습니까?")) {
@@ -63,9 +71,9 @@ function PostOtions({
                 document.querySelector("body")?.classList.remove("active");
               }}
               className={
-                findUserName === session.data?.user?.name
+                findUserName === user?.name
                   ? "name"
-                  : findUserName === session.data?.user?.nickName
+                  : findUserName === user?.nickName
                   ? "nickName"
                   : "block"
               }

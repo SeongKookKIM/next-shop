@@ -1,7 +1,8 @@
 "use client";
+import { UserType } from "@/app/Type";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LuChevronRight } from "react-icons/lu";
 
 interface sessionType {
@@ -9,14 +10,22 @@ interface sessionType {
 }
 
 function ProfileInfo({ session }: sessionType) {
+  const [user, setuser] = useState<UserType>();
+
   if (!session) {
     return <div>null</div>;
   }
 
   let router = useRouter();
 
+  useEffect(() => {
+    if (session) {
+      setuser(session.user as UserType);
+    }
+  }, [session]);
+
   const handlerProfileDetail = () => {
-    const userName = session.user?.name || session.user?.nickName;
+    const userName = user?.name || user?.nickName;
 
     router.push(`/profile/${userName}?name=${userName}`);
   };

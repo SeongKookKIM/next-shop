@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && npm install --legacy-peer-deps",
+    "build": "next build",
+    "postbuild": "yarn install --force",
     "start": "next start",
     "lint": "next lint"
   },
@@ -21,8 +22,8 @@
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
     "node-sass": "^9.0.0",
-    "react": "18",
-    "react-dom": "^18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
     "react-icons": "^4.12.0",
     "sass": "^1.69.6",

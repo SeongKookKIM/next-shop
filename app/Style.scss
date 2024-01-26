@@ -1413,14 +1413,35 @@ body.active {
         color: red;
         font-weight: 500;
       }
-
-      .ProseMirror.toastui-editor-contents {
-        p {
-          font-size: 15px;
+      .editor {
+        padding: 0 5%;
+        .alert {
+          margin: 4px 0;
+          font-size: 11px;
+          color: red;
+          font-weight: 500;
         }
-      }
-      .toastui-editor-popup {
-        margin: 0;
+        p {
+          font-size: 14px;
+          margin: 10px 0;
+          font-weight: 700;
+          color: #222;
+        }
+        textarea {
+          width: 100%;
+          height: auto;
+          border: none;
+          outline: none;
+          border-bottom: 2px solid #868e96;
+          resize: none;
+          font-family: $font;
+          font-weight: 600;
+          font-size: 14px;
+          padding: 10px 0;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
       }
 
       button.cm-submit {
@@ -1680,6 +1701,23 @@ body.active {
       width: 90%;
       margin: 0 auto;
       font-size: 14px;
+      font-weight: 500;
+      textarea {
+        pointer-events: none;
+        display: block;
+        width: 100%;
+        height: auto;
+        border: none;
+        outline: none;
+        resize: none;
+        font-family: $font;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 0;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
   }
   .cm-detail-bottom-inner {
@@ -2110,6 +2148,24 @@ body.active {
         input::-webkit-inner-spin-button {
           -webkit-appearance: none;
           margin: 0;
+        }
+        textarea {
+          display: block;
+          width: 100%;
+          height: auto;
+          min-height: 300px;
+          border: none;
+          border: 2px solid #f1f3f5;
+          border-radius: 10px;
+          outline: none;
+          resize: none;
+          font-family: $font;
+          font-weight: 600;
+          font-size: 16px;
+          padding: 10px 0;
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
         .number-box {
           width: 100%;
@@ -2577,10 +2633,21 @@ body.active {
             rgba(255, 255, 255, 0) 90%
           );
         }
-        .toastui-editor-contents {
+        textarea {
+          pointer-events: none;
+          display: block;
+          width: 100%;
+          height: auto;
+          min-height: 200px;
+          border: none;
+          outline: none;
+          resize: none;
+          font-family: $font;
+          font-weight: 600;
           font-size: 14px;
-          p {
-            font-size: 14px;
+          padding: 10px 0;
+          &::-webkit-scrollbar {
+            display: none;
           }
         }
       }
@@ -2905,6 +2972,24 @@ body.active {
           -webkit-appearance: none;
           margin: 0;
         }
+        textarea {
+          display: block;
+          width: 100%;
+          height: auto;
+          min-height: 500px;
+          border: none;
+          outline: none;
+          resize: none;
+          border: 2px solid #f1f3f5;
+          border-radius: 10px;
+          font-family: $font;
+          font-weight: 600;
+          font-size: 14px;
+          padding: 10px 0 10px 10px;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
         .number-box {
           width: 100%;
           position: relative;
@@ -2917,14 +3002,6 @@ body.active {
             font-weight: 600;
             color: #222;
           }
-        }
-        .ProseMirror.toastui-editor-contents {
-          p {
-            font-size: 15px;
-          }
-        }
-        .toastui-editor-popup {
-          margin: 0;
         }
       }
       button.transaction-sell-btn {

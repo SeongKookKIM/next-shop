@@ -1,20 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import Cmtype from "../../components/commnunityWrite/Cmtype";
 import Bg from "../../components/commnunityWrite/Bg";
-import dynamic from "next/dynamic";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import useSWR from "swr";
-
-const WriteEditor = dynamic(
-  () => import("../../components/commnunityWrite/WriteEditor"),
-  {
-    ssr: false,
-  }
-);
 
 type StateTypes = { id: string };
 
@@ -26,8 +18,6 @@ function page() {
   const [cmTypeShow, setCmTypeShow] = useState<boolean>(false);
   const [cmTypeChecked, setCmTypeChecked] = useState<boolean>(false);
   const [cmPostId, setCmPostId] = useState<string>("");
-
-  const editorRef = useRef<any>(null);
 
   let router = useRouter();
 
@@ -56,40 +46,50 @@ function page() {
     document.querySelector("body")?.classList.add("active");
   };
 
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.target.style.height = "auto";
+    e.target.style.height = `${Math.min(e.target.scrollHeight, 300)}px`;
+  };
+
+  useEffect(() => {
+    // 페이지 로드 시 초기 높이 설정
+    const textareaElement: any = document.querySelector(".editor textarea");
+    if (textareaElement) {
+      textareaElement.style.height = "auto";
+      textareaElement.style.height = `${Math.min(
+        textareaElement.scrollHeight,
+        300
+      )}px`;
+    }
+  }, [data]);
+
   const commnunitySubmit = async (data: any) => {
     await new Promise((r) => setTimeout(r, 1000));
-
-    const editorIns = editorRef?.current?.getInstance();
-
-    const contentMark = editorIns.getMarkdown();
 
     let cmData = {
       type: data.type,
       title: data.title,
-      content: contentMark,
+      content: data.content,
       _id: cmPostId,
     };
 
-    if (contentMark?.length === 0) {
-      alert("글내용을 작성해주세요.");
-      return;
-    } else {
-      axios
-        .post("/api/community/communityEditPost", cmData)
-        .then((res) => {
-          if (res.status === 200) {
-            alert(res.data);
-            router.back();
-            setTimeout(() => {
-              router.refresh();
-            }, 100);
-          } else {
-            alert("글 수정에 실패하였습니다.");
+    axios
+      .post("/api/community/communityEditPost", cmData)
+      .then((res) => {
+        if (res.status === 200) {
+          alert(res.data);
+          router.back();
+
+          setTimeout(() => {
+            router.refresh();
             window.location.reload();
-          }
-        })
-        .catch((err) => console.log(err));
-    }
+          }, 100);
+        } else {
+          alert("글 수정에 실패하였습니다.");
+          window.location.reload();
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -122,7 +122,7 @@ function page() {
           <input
             type="tesx"
             placeholder="글 제목을 입력해주세요."
-            defaultValue={data ? data.title : ""}
+            value={data ? data.title : ""}
             aria-invalid={
               isSubmitted ? (errors.title ? "true" : "false") : undefined
             }
@@ -135,9 +135,19 @@ function page() {
           )}
         </div>
         <div className="editor">
-          <WriteEditor
-            editorRef={editorRef}
-            content={data ? data.content : ""}
+          <textarea
+            typeof="text"
+            placeholder="상세 내용을 입력해주세요."
+            defaultValue={data ? data.content : ""}
+            aria-invalid={
+              isSubmitted ? (errors.content ? "true" : "false") : undefined
+            }
+            {...register("content", {
+              required: "* 필수 입력란입니다.",
+            })}
+            onChange={(e) => {
+              handleTextareaChange(e);
+            }}
           />
         </div>
         <button type="submit" disabled={isSubmitting} className="cm-submit">

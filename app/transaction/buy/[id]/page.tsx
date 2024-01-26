@@ -6,14 +6,6 @@ import Slide from "@/app/components/transaction/buy/Slide";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-
-const Viewer = dynamic(
-  () => import("@toast-ui/react-editor").then((mod) => mod.Viewer),
-  {
-    ssr: false,
-  }
-);
 
 type PostType = {
   id: string;
@@ -34,6 +26,19 @@ function page() {
       })
       .catch((err) => console.log(err));
   }, [postId]);
+
+  useEffect(() => {
+    const textareaElement: any = document.querySelector(
+      ".transaction-post-content-wrapper textarea"
+    );
+    if (textareaElement) {
+      textareaElement.style.height = "auto";
+      textareaElement.style.height = `${Math.min(
+        textareaElement.scrollHeight,
+        2000
+      )}px`;
+    }
+  }, [postDetail?.content]);
 
   const handlerClickUrl = (url: string) => {
     const absoluteUrl = url.startsWith("http") ? url : `http://${url}`;
@@ -113,7 +118,7 @@ function page() {
               : "transaction-post-content-wrapper"
           }
         >
-          {Viewer && <Viewer initialValue={postDetail?.content} />}
+          <textarea typeof="text" defaultValue={postDetail.content} />
         </div>
         <button
           type="button"

@@ -5,16 +5,12 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { LuPlus, LuRefreshCcw } from "react-icons/lu";
+import { LuRefreshCcw } from "react-icons/lu";
 
-import Image from "@/app/components/transaction/sell/Image";
-import Content from "@/app/components/transaction/sell/Content";
 import { TransactionType } from "@/app/Type";
 
 function page() {
   const [post, setPost] = useState<TransactionType>();
-
-  const contentRef = useRef<any>(null);
 
   let router = useRouter();
 
@@ -42,6 +38,7 @@ function page() {
         setValue("name", res.data.name);
         setValue("phone", res.data.phone);
         setValue("email", res.data.email);
+        setValue("content", res.data.content);
 
         setTimeout(() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
@@ -49,6 +46,24 @@ function page() {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.target.style.height = "auto";
+    e.target.style.height = `${Math.min(e.target.scrollHeight, 2000)}px`;
+  };
+
+  useEffect(() => {
+    const textareaElement: any = document.querySelector(
+      ".content-box textarea"
+    );
+    if (textareaElement) {
+      textareaElement.style.height = "auto";
+      textareaElement.style.height = `${Math.min(
+        textareaElement.scrollHeight,
+        3000
+      )}px`;
+    }
+  }, [post]);
 
   // RefreshImage
   const handlerImageReset = () => {
@@ -63,10 +78,6 @@ function page() {
   const handlerSell = async (data: any) => {
     await new Promise((r) => setTimeout(r, 1000));
 
-    const contentIns = contentRef?.current?.getInstance();
-
-    const contentMark = contentIns.getMarkdown();
-
     if (window.confirm("게시물을 수정하시겠습니까?")) {
       try {
         const postDbData = {
@@ -76,7 +87,7 @@ function page() {
           price: parseInt(data.price),
           sales: parseInt(data.sales),
           revenue: parseInt(data.revenue),
-          content: contentMark,
+          content: data.content,
           name: data.name,
           phone: data.phone,
           email: data.email,
@@ -265,9 +276,22 @@ function page() {
         </div>
 
         {/* 상세내용 */}
-        <div className="sell-box">
+        <div className="sell-box content-box">
           <label>상세내용</label>
-          <Content contentRef={contentRef} content={post?.content} />
+          <textarea
+            typeof="text"
+            placeholder="상세 내용을 입력해주세요."
+            defaultValue={post ? post.content : ""}
+            aria-invalid={
+              isSubmitted ? (errors.content ? "true" : "false") : undefined
+            }
+            {...register("content", {
+              required: "* 필수 입력란입니다.",
+            })}
+            onChange={(e) => {
+              handleTextareaChange(e);
+            }}
+          />
         </div>
 
         {/* 판매자 정보 */}

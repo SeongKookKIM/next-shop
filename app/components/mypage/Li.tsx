@@ -1,7 +1,9 @@
 "use client";
 
+import { UserType } from "@/app/Type";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface PropsType {
   title: string;
@@ -9,6 +11,14 @@ interface PropsType {
 }
 
 function Li({ title, session }: PropsType) {
+  const [user, setuser] = useState<UserType>();
+
+  useEffect(() => {
+    if (session) {
+      setuser(session.user as UserType);
+    }
+  }, [session]);
+
   if (!session) {
     return (
       <div>
@@ -20,7 +30,7 @@ function Li({ title, session }: PropsType) {
   let router = useRouter();
 
   const handlerLink = (title: string) => {
-    const userName = session.user?.name || session.user?.nickName;
+    const userName = user?.name || user?.nickName;
 
     switch (title) {
       case "내 사업 판매하기":

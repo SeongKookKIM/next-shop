@@ -1,18 +1,19 @@
 import React from "react";
 import List from "../components/community/List";
 import { connectDB } from "@/util/MongoData";
-import { CommnunityPostType } from "../Type";
-import { getServerSession } from "next-auth";
+import { CommnunityPostType, UserType } from "../Type";
+import { Session, getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 async function page() {
-  let session = await getServerSession(authOptions);
+  let session: Session | null = await getServerSession(authOptions);
+  const user = session?.user as UserType;
 
   const db = (await connectDB).db("next-shop");
   const findList: CommnunityPostType[] | undefined = (
     await db
       .collection("community")
-      .find({ userName: session?.user.name || session?.user.nickName })
+      .find({ userName: user.name || user.nickName })
       .toArray()
   ).map((item) => ({
     _id: item._id,

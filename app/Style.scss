@@ -530,6 +530,8 @@ body.active {
           border-radius: 10px;
           border: 1px solid rgb(0 0 0 / 15%);
           outline: none;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0;
 
           &::placeholder {
             font-size: 13px;
@@ -633,6 +635,8 @@ body.active {
         border-radius: 10px;
         border: 1px solid rgba(0, 0, 0, 0.15);
         outline: none;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
         &::placeholder {
           font-family: $font;
           font-size: 12px;
@@ -929,6 +933,8 @@ body.active {
             font-size: 16px;
             font-weight: 600;
             padding: 10px 0;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0;
           }
           .alert {
             margin-top: 4px;
@@ -957,6 +963,8 @@ body.active {
         }
         .password-change {
           input {
+            -webkit-appearance: none;
+            -webkit-border-radius: 0;
             &::placeholder {
               font-family: $font;
               font-size: 12px;
@@ -1034,6 +1042,8 @@ body.active {
           padding: 10px 0;
           font-weight: 600;
           transition: 0.5s;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0;
         }
 
         textarea {
@@ -1399,6 +1409,8 @@ body.active {
         font-size: 15px;
         font-weight: $font;
         font-weight: 600;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
         &:first-child {
           border-bottom: 2px solid #f1f3f5;
         }
@@ -1615,7 +1627,9 @@ body.active {
         }
         .cm-detail-user-info-right {
           cursor: pointer;
+
           span {
+            display: block;
             font-size: 16px;
             letter-spacing: -2px;
             font-weight: 700;
@@ -2139,6 +2153,8 @@ body.active {
           font-family: $font;
           font-weight: 600;
           padding: 10px 0;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0;
           &::placeholder {
             font-family: $font;
             font-weight: 16px;
@@ -2256,6 +2272,8 @@ body.active {
         border-radius: 8px;
         border: none;
         outline: none;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
         &::placeholder {
           color: #868e96;
         }
@@ -2423,6 +2441,8 @@ body.active {
               font-family: $font;
               font-size: 12px;
               font-weight: 500;
+              -webkit-appearance: none;
+              -webkit-border-radius: 0;
               &::placeholder {
                 font-family: $font;
                 font-size: 12px;
@@ -2955,6 +2975,8 @@ body.active {
           font-family: $font;
           font-weight: 600;
           padding: 10px 0;
+          -webkit-appearance: none;
+          -webkit-border-radius: 0;
           &::placeholder {
             font-family: $font;
             font-weight: 16px;

@@ -48,6 +48,7 @@ export default function Home() {
             <img
               src="https://nextshopimage.s3.ap-northeast-2.amazonaws.com/waving-hand.png"
               style={{ width: "20px", height: "20px" }}
+              alt="hand-waving"
             />
           </p>
           <p>이제부터는 "직거래"를 통한 </p>

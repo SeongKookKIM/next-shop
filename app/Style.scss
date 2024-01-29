@@ -53,6 +53,7 @@ $colorBlue: #3b5bdb;
           width: 20px;
           height: 20px;
           stroke-width: 1px;
+          cursor: pointer;
         }
         span {
           font-size: 18px;
@@ -80,6 +81,7 @@ $colorBlue: #3b5bdb;
           font-size: 16px;
           color: #868e96;
           font-weight: 600;
+          cursor: pointer;
         }
         span.active {
           color: #222;
@@ -459,6 +461,7 @@ body.active {
         text-align: center;
         font-weight: 400;
         pointer-events: none;
+        text-decoration: none;
       }
     }
     .footer-info-list {
@@ -705,6 +708,7 @@ body.active {
     .profile {
       padding: 20px 0;
       display: flex;
+      cursor: pointer;
       .profile-image {
         width: 50px;
         height: 50px;
@@ -817,7 +821,6 @@ body.active {
       }
       ul {
         width: 100%;
-
         li {
           padding: 10px 0;
           border-bottom: 1px solid #f1f3f5;
@@ -826,6 +829,7 @@ body.active {
           flex-direction: column;
           justify-content: center;
           gap: 8px;
+
           p {
             font-size: 12px;
             color: #868e96;
@@ -853,6 +857,7 @@ body.active {
             padding: 3px 8px;
             border-radius: 7px;
             @include flexCenter();
+            cursor: pointer;
           }
         }
       }
@@ -899,6 +904,7 @@ body.active {
     .edit-name,
     .edit-phone {
       width: 100%;
+      max-width: 700px;
       position: fixed;
       bottom: 0;
       z-index: 110;
@@ -1003,6 +1009,7 @@ body.active {
         padding: 14px 0;
         margin-top: 20px;
         border-radius: 10px;
+        cursor: pointer;
       }
     }
   }
@@ -1012,9 +1019,11 @@ body.active {
   width: 100%;
   @include suvNavStyle();
   padding-top: 55px;
+
   .inqury-inner {
     width: 90%;
     margin: 0 auto;
+
     form {
       width: 100%;
       margin-top: 20px;
@@ -1054,6 +1063,7 @@ body.active {
         textarea {
           width: 100%;
           height: auto;
+          min-height: 150px;
           border: none;
           outline: none;
           border-bottom: 2px solid #868e96;
@@ -1062,6 +1072,7 @@ body.active {
           font-weight: 600;
           font-size: 14px;
           padding: 10px 0;
+          -webkit-border-radius: 0;
         }
         .alert {
           margin-top: 4px;
@@ -1080,9 +1091,9 @@ body.active {
         border: none;
         outline: none;
         padding: 14px 0;
-
         border-radius: 10px;
         margin: 20px 0;
+        cursor: pointer;
       }
     }
   }
@@ -1102,22 +1113,25 @@ body.active {
     transition: 0.3s;
   }
   .inqury-type-box.show {
-    transform: translateY(0%);
+    transform: translateY(0%) translateX(-50%);
+    transform: translateX(-50%);
     transition: 0.5s;
   }
 
   .inqury-type-box {
     width: 100%;
+    max-width: 700px;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 50%;
     z-index: 110;
     background-color: white;
     padding: 15px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    transform: translateY(100%);
+    transform: translateY(100%) translateX(-50%);
     transition: 0.5s;
+
     .inqury-header {
       width: 100%;
       display: flex;
@@ -1401,6 +1415,9 @@ body.active {
       display: flex;
       flex-direction: column;
       align-items: center;
+      .cm-type {
+        cursor: pointer;
+      }
       .cm-type,
       .cm-title,
       .editor {
@@ -1477,6 +1494,7 @@ body.active {
         padding: 14px 0;
         border-radius: 10px;
         margin: 20px 0;
+        cursor: pointer;
       }
     }
     .cm-bg {
@@ -1495,21 +1513,23 @@ body.active {
       transition: 0.3s;
     }
     .cm-type-box.show {
-      transform: translateY(0%);
+      transform: translateY(0%) translateX(-50%);
       transition: 0.5s;
     }
 
     .cm-type-box {
       width: 100%;
+      max-width: 700px;
       position: fixed;
       bottom: 0;
-      left: 0;
+      left: 50%;
       z-index: 110;
       background-color: white;
       padding: 15px;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      transform: translateY(100%);
+      transform: translateY(100%) translateX(-50%);
+
       transition: 0.5s;
       .type-header {
         width: 100%;
@@ -2083,6 +2103,7 @@ body.active {
               width: 20px;
               height: 20px;
               stroke: #868e96;
+              cursor: pointer;
             }
           }
         }
@@ -2300,6 +2321,7 @@ body.active {
           box-shadow: 0 3px 10px 0 rgba(230, 230, 230, 0.5);
           padding: 7px 30px 12px;
           margin-bottom: 30px;
+          cursor: pointer;
           &:last-child {
             margin-bottom: 0;
           }
@@ -2518,6 +2540,7 @@ body.active {
       background-color: #f1f3f5;
       .swiper-slide {
         @include flexCenter();
+        cursor: pointer;
         img {
           width: 100%;
           object-fit: cover;
@@ -2539,6 +2562,10 @@ body.active {
           font-size: 13px;
           color: white;
         }
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
       }
     }
     .transaction-post-header {
@@ -2692,6 +2719,7 @@ body.active {
         padding: 14px 0;
         border-radius: 10px;
         margin: 20px 0;
+        cursor: pointer;
       }
     }
     .transaction-post-footer {
@@ -2732,6 +2760,7 @@ body.active {
             font-weight: 500;
             padding: 3px 7px;
             border-radius: 5px;
+            cursor: pointer;
           }
         }
       }

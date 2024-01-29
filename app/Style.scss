@@ -1448,6 +1448,7 @@ body.active {
         textarea {
           width: 100%;
           height: auto;
+          min-height: 150px;
           border: none;
           outline: none;
           border-bottom: 2px solid #868e96;
@@ -1456,6 +1457,7 @@ body.active {
           font-weight: 600;
           font-size: 14px;
           padding: 10px 0;
+          -webkit-border-radius: 0;
           &::-webkit-scrollbar {
             display: none;
           }

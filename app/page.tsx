@@ -47,7 +47,6 @@ export default function Home() {
             환영합니다
             <img
               src="https://nextshopimage.s3.ap-northeast-2.amazonaws.com/waving-hand.png"
-              style={{ width: "20px", height: "20px" }}
               alt="hand-waving"
             />
           </p>

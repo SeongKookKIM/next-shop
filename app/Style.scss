@@ -514,6 +514,7 @@ body.active {
 // login
 .login-page {
   width: 100%;
+  min-height: 80vh;
   @include suvNavStyle();
 
   .login {
@@ -535,14 +536,14 @@ body.active {
           height: 52px;
           padding: 15px 16px;
           font-size: 15px;
+          font-family: $font;
           border-radius: 10px;
           border: 1px solid rgb(0 0 0 / 15%);
           outline: none;
           -webkit-appearance: none;
-          -webkit-border-radius: 0;
-
           &::placeholder {
             font-size: 13px;
+            font-family: $font;
             letter-spacing: 1px;
             color: rgba(0, 0, 0, 0.4);
             font-weight: 600;
@@ -555,7 +556,6 @@ body.active {
         }
         button {
           margin-top: 10px;
-          background-color: #212529;
           border-color: #212529;
           color: #fff;
           height: 56px;
@@ -563,6 +563,10 @@ body.active {
           font-size: 14px;
           font-weight: 500;
           border-radius: 10px;
+          border: none;
+          outline: none;
+          box-shadow: none;
+          cursor: pointer;
         }
       }
       .login-signin {
@@ -644,7 +648,6 @@ body.active {
         border: 1px solid rgba(0, 0, 0, 0.15);
         outline: none;
         -webkit-appearance: none;
-        -webkit-border-radius: 0;
         &::placeholder {
           font-family: $font;
           font-size: 12px;
@@ -684,7 +687,6 @@ body.active {
       }
       button {
         margin-top: 10px;
-        background-color: #212529;
         border-color: none;
         outline: none;
         color: #fff;
@@ -692,6 +694,9 @@ body.active {
         font-weight: 500;
         border-radius: 10px;
         padding: 10px 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
       }
     }
   }
@@ -700,6 +705,7 @@ body.active {
 // Mypage
 .mypage-page {
   width: 100%;
+  min-height: 80vh;
   @include suvNavStyle();
   padding-top: 55px;
   .mypage-inner {
@@ -803,6 +809,7 @@ body.active {
 // Profile
 .profile-page {
   width: 100%;
+  min-height: 80vh;
   padding-top: 55px;
   @include suvNavStyle();
   .profile-inner {
@@ -1175,6 +1182,7 @@ body.active {
 // notice
 .notice-page {
   width: 100%;
+  min-height: 80vh;
   @include suvNavStyle();
   padding-top: 55px;
   .notice-inner {
@@ -1240,21 +1248,22 @@ body.active {
         transition: 0.3s;
       }
       .notice-detail.show {
-        transform: translateY(0%);
+        transform: translateY(0%) translateX(-50%);
         transition: 0.5s;
       }
 
       .notice-detail {
         width: 100%;
+        max-width: 700px;
         position: fixed;
         bottom: 0;
-        left: 0;
+        left: 50%;
         z-index: 110;
         background-color: white;
         padding: 15px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        transform: translateY(100%);
+        transform: translateY(100%) translateX(-50%);
         transition: 0.5s;
         .notice-header {
           width: 100%;
@@ -1288,6 +1297,7 @@ body.active {
         }
         .notice-body {
           padding: 15px 0;
+          min-height: 200px;
           p {
             width: 100%;
             font-size: 14px;
@@ -1302,6 +1312,7 @@ body.active {
 // community
 .community-page {
   width: 100%;
+  min-height: 80vh;
   @include suvNavStyle();
   padding-top: 100px;
   position: relative;
@@ -2013,6 +2024,7 @@ body.active {
 // Transaction
 .transaction-page {
   width: 100%;
+  min-height: 80vh;
   @include suvNavStyle();
   padding-top: 55px;
   .transaction-inner {
@@ -2403,16 +2415,18 @@ body.active {
     transition: 0.3s;
   }
   .transaction-option-box.show {
-    transform: translateY(0%);
+    transform: translateY(0) translateX(-50%);
+
     transition: 0.5s;
   }
   .transaction-option-box {
     width: 100%;
+    max-width: 700px;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 50%;
     z-index: 110;
-    transform: translateY(100%);
+    transform: translateY(100%) translateX(-50%);
     transition: 0.5s;
     background-color: white;
     border-radius: 10px;
@@ -2774,6 +2788,7 @@ body.active {
 // MyWrite
 .my-write-page {
   width: 100%;
+  min-height: 80vh;
   padding-top: 55px;
   @include suvNavStyle();
   .community-inner {
@@ -2845,6 +2860,7 @@ body.active {
 // myPsot
 .my-post-page {
   width: 100%;
+  min-height: 80vh;
   padding-top: 55px;
   @include suvNavStyle();
   .my-post-page-inner {
@@ -2872,6 +2888,7 @@ body.active {
           box-shadow: 0 3px 10px 0 rgba(230, 230, 230, 0.5);
           padding: 7px 30px 12px;
           margin-top: 50px;
+          cursor: pointer;
           &:last-child {
             margin-bottom: 0;
           }
@@ -3075,6 +3092,7 @@ body.active {
 // invest
 .invest-page {
   width: 100%;
+  min-height: 80vh;
   padding-top: 55px;
   @include suvNavStyle();
   .invest-page-inner {

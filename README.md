@@ -4,12 +4,14 @@
 react를 활용하며, SEO의 단점을 극복하기 위해 SEO를 향상시키는 웹 페이지를 만들고자 Next.js를 채택했습니다. <br/>이 프로젝트를 통해 TypeScript와 SSR, CSR에 대한 심층적인 이해를 쌓을 수 있었습니다.</p>
 
 <hr/>
-[서비스링크](https://next-shop-yubs-git-main-seongkookkim.vercel.app/)
 
-###[`Test Account`]
+[서비스 링크](https://next-shop-yubs-git-main-seongkookkim.vercel.app/)
+
+### [`Test Account`]
 
 ```bash
 ID: test123
+
 PW: test123!@#
 ```
 

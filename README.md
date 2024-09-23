@@ -27,8 +27,7 @@ PW: Test123!@#
 ### 2. 커뮤니티 기능
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cbb1bbfb-e86c-4ed8-95c0-9be736646a92
-  " alt="회원관리 설명" width="45%" />
+  <img src="https://github.com/user-attachments/assets/cbb1bbfb-e86c-4ed8-95c0-9be736646a92" alt="회원관리 설명" width="45%" />
   <img src="https://github.com/user-attachments/assets/6b4cc431-1771-4efe-8c31-0403cc2331bc" alt="회원관리 설명" width="45%" />
 </p>
 
